@@ -1,6 +1,6 @@
 ﻿namespace Item_Generator
 {
-    partial class Form1
+    partial class ItemDisplay
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ItemDisplay
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "ItemDisplay";
+            this.Text = "Item Display";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-

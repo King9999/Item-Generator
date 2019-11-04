@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Item_Generator
 {
-    public partial class Form1 : Form
+    public partial class ItemDisplay : Form
     {
-        public Form1()
+        public ItemDisplay()
         {
             InitializeComponent();
         }
