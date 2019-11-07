@@ -59,11 +59,39 @@ namespace Item_Generator
             switch (selectedItem)
             {
                 case WEAPON:
-                    MessageBox.Show("You selected Weapon");
+                    {
+                        ComboBox_ItemSubType.Items.Add("Sword");
+                        ComboBox_ItemSubType.Items.Add("Axe");
+                        ComboBox_ItemSubType.Items.Add("Spear");
+                        ComboBox_ItemSubType.Items.Add("Bow");
+                        ComboBox_ItemSubType.Items.Add("Staff");
+                    }
                     break;
 
                 case ARMOR:
-                    MessageBox.Show("You selected Armor");
+                    {
+                        ComboBox_ItemSubType.Items.Add("Suit");
+                        ComboBox_ItemSubType.Items.Add("Vest");
+                        ComboBox_ItemSubType.Items.Add("Robe");
+                        ComboBox_ItemSubType.Items.Add("Helm");
+                        ComboBox_ItemSubType.Items.Add("Shield");      
+                    }
+                    break;
+
+                case ACCESSORY:
+                    {
+                        ComboBox_ItemSubType.Items.Add("Ring");
+                        ComboBox_ItemSubType.Items.Add("Boots");
+                        ComboBox_ItemSubType.Items.Add("Necklace");
+                    }
+                    break;
+
+                case CONSUMABLE:
+                    {
+                        ComboBox_ItemSubType.Items.Add("Healing");
+                        ComboBox_ItemSubType.Items.Add("Attack");
+                        ComboBox_ItemSubType.Items.Add("Support");
+                    }
                     break;
 
                 default:
