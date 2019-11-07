@@ -55,6 +55,11 @@ namespace Item_Generator
             for (int i = 0; i < Enum.GetNames(typeof(wpnStatusEffect)).Length; i++)
                 wpnStatusEffectNames.Add(new Dictionary<string, byte>());
 
+            for (int i = 0; i < Enum.GetNames(typeof(wpnElement)).Length; i++)
+                wpnElementNames.Add(new Dictionary<string, byte>());
+
+            /****Ailments. These are prefixes, which means weapon names can begin with these names. *****/
+
             //Poison tiers
             wpnStatusEffectNames[(int)wpnStatusEffect.Poison].Add("Bacterial", 10);
             wpnStatusEffectNames[(int)wpnStatusEffect.Poison].Add("Contaminated", 20);
@@ -97,7 +102,7 @@ namespace Item_Generator
             //Death tiers
             wpnStatusEffectNames[(int)wpnStatusEffect.Death].Add("Dim", 10);
             wpnStatusEffectNames[(int)wpnStatusEffect.Death].Add("Shadow", 20);
-            wpnStatusEffectNames[(int)wpnStatusEffect.Death].Add("Dark", 30);
+            wpnStatusEffectNames[(int)wpnStatusEffect.Death].Add("Sinister", 30);
             wpnStatusEffectNames[(int)wpnStatusEffect.Death].Add("Blackened", 40);
             wpnStatusEffectNames[(int)wpnStatusEffect.Death].Add("Death", 50);
             wpnStatusEffectNames[(int)wpnStatusEffect.Death].Add("Disastrous", 60);    //a weapon with this effect should be more likely to have dark element
@@ -117,6 +122,82 @@ namespace Item_Generator
             wpnStatusEffectNames[(int)wpnStatusEffect.Sleep].Add("Lethargic", 80);
             wpnStatusEffectNames[(int)wpnStatusEffect.Sleep].Add("Dreamy", 90);
             wpnStatusEffectNames[(int)wpnStatusEffect.Sleep].Add("Nightmarish", 100);
+
+            /*****Elements. These are suffixes, which means they are added at the end of weapon names****/
+
+            //Fire tiers
+            wpnElementNames[(int)wpnElement.Fire].Add("of Heat", 10);
+            wpnElementNames[(int)wpnElement.Fire].Add("of Charring", 20);
+            wpnElementNames[(int)wpnElement.Fire].Add("of Embers", 30);
+            wpnElementNames[(int)wpnElement.Fire].Add("of Searing", 40);
+            wpnElementNames[(int)wpnElement.Fire].Add("of the Bonfire", 50);
+            wpnElementNames[(int)wpnElement.Fire].Add("of Incandescence", 60);
+            wpnElementNames[(int)wpnElement.Fire].Add("of Brimstone", 70);
+            wpnElementNames[(int)wpnElement.Fire].Add("of Flames", 80);
+            wpnElementNames[(int)wpnElement.Fire].Add("of Combustion", 90);
+            wpnElementNames[(int)wpnElement.Fire].Add("of the Inferno", 100);
+
+            //Water tiers
+            wpnElementNames[(int)wpnElement.Water].Add("of Droplets", 10);
+            wpnElementNames[(int)wpnElement.Water].Add("of the Puddle", 20);
+            wpnElementNames[(int)wpnElement.Water].Add("of the Pond", 30);
+            wpnElementNames[(int)wpnElement.Water].Add("of the Lake", 40);
+            wpnElementNames[(int)wpnElement.Water].Add("of the Ocean", 50);
+            wpnElementNames[(int)wpnElement.Water].Add("of the Tsunami", 60);
+            wpnElementNames[(int)wpnElement.Water].Add("of the Whirlpool", 70);
+            wpnElementNames[(int)wpnElement.Water].Add("of the Flood", 80);
+            wpnElementNames[(int)wpnElement.Water].Add("of the Deluge", 90);
+            wpnElementNames[(int)wpnElement.Water].Add("of the Torrent", 100);
+
+            //Earth tiers
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Pebble", 10);
+            wpnElementNames[(int)wpnElement.Earth].Add("of Gravel", 20);
+            wpnElementNames[(int)wpnElement.Earth].Add("of Rubble", 30);
+            wpnElementNames[(int)wpnElement.Earth].Add("of Sands", 40);
+            wpnElementNames[(int)wpnElement.Earth].Add("of Bedrock", 50);
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Boulder", 60);
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Crag", 70);
+            wpnElementNames[(int)wpnElement.Earth].Add("of Seimicity", 80);
+            wpnElementNames[(int)wpnElement.Earth].Add("of Tremors", 90);
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Quake", 100);
+
+            //Wind tiers
+            wpnElementNames[(int)wpnElement.Earth].Add("of Air", 10);
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Breeze", 20);
+            wpnElementNames[(int)wpnElement.Earth].Add("of Gust", 30);
+            wpnElementNames[(int)wpnElement.Earth].Add("of Gales", 40);
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Mistral", 50);
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Twister", 60);
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Squall", 70);
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Maelstrom", 80);
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Tempest", 90);
+            wpnElementNames[(int)wpnElement.Earth].Add("of the Cyclone", 100);
+
+            //Light tiers
+            wpnElementNames[(int)wpnElement.Light].Add("of Dawn", 10);
+            wpnElementNames[(int)wpnElement.Light].Add("of Luminance", 20);
+            wpnElementNames[(int)wpnElement.Light].Add("of Daybreak", 30);
+            wpnElementNames[(int)wpnElement.Light].Add("of Brilliance", 40);
+            wpnElementNames[(int)wpnElement.Light].Add("of Splendor", 50);
+            wpnElementNames[(int)wpnElement.Light].Add("of Resplendence", 60);
+            wpnElementNames[(int)wpnElement.Light].Add("of Starlight", 70);
+            wpnElementNames[(int)wpnElement.Light].Add("of Radiance", 80);
+            wpnElementNames[(int)wpnElement.Light].Add("of Scintillation", 90);
+            wpnElementNames[(int)wpnElement.Light].Add("of the Sun", 100);
+
+            //Dark tiers
+            wpnElementNames[(int)wpnElement.Dark].Add("of Dusk", 10);
+            wpnElementNames[(int)wpnElement.Dark].Add("of Gloom", 20);
+            wpnElementNames[(int)wpnElement.Dark].Add("of Shade", 30);
+            wpnElementNames[(int)wpnElement.Dark].Add("of Eventide", 40);
+            wpnElementNames[(int)wpnElement.Dark].Add("of Midnight", 50);
+            wpnElementNames[(int)wpnElement.Dark].Add("of the Umbra", 60);
+            wpnElementNames[(int)wpnElement.Dark].Add("of Spirits", 70);
+            wpnElementNames[(int)wpnElement.Dark].Add("of Sin", 80);
+            wpnElementNames[(int)wpnElement.Dark].Add("of Twilight", 90);
+            wpnElementNames[(int)wpnElement.Dark].Add("of the End", 100);
+
+
         }
 
 
