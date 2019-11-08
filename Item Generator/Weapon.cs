@@ -21,7 +21,7 @@ namespace Item_Generator
         protected enum wpnStatusEffect:byte
         {
             Poison,
-            Paralyze,           //A weapon can come with a status effect. Weapons can only have one status effect enabled.
+            Stun,           //A weapon can come with a status effect. Weapons can only have one status effect enabled.
             Freeze,             //The success rate of landing an effect is determined by the suffix in the item name.
             Death,
             Sleep
@@ -75,17 +75,17 @@ namespace Item_Generator
            
             //Console.WriteLine(wpnStatusEffectNames[(int)wpnStatusEffect.Poison].Keys);
 
-            //Paralyze tiers
-            wpnStatusEffectNames[(int)wpnStatusEffect.Paralyze].Add("Tingling", 10);
-            wpnStatusEffectNames[(int)wpnStatusEffect.Paralyze].Add("Numbing", 20);
-            wpnStatusEffectNames[(int)wpnStatusEffect.Paralyze].Add("Stiffening", 30);
-            wpnStatusEffectNames[(int)wpnStatusEffect.Paralyze].Add("Immobilizing", 40);
-            wpnStatusEffectNames[(int)wpnStatusEffect.Paralyze].Add("Disabling", 50);
-            wpnStatusEffectNames[(int)wpnStatusEffect.Paralyze].Add("Debilitating", 60);
-            wpnStatusEffectNames[(int)wpnStatusEffect.Paralyze].Add("Paralyzing", 70);
-            wpnStatusEffectNames[(int)wpnStatusEffect.Paralyze].Add("Disarming", 80);
-            wpnStatusEffectNames[(int)wpnStatusEffect.Paralyze].Add("Arresting", 90);
-            wpnStatusEffectNames[(int)wpnStatusEffect.Paralyze].Add("Enfeebling", 100);
+            //Stun tiers
+            wpnStatusEffectNames[(int)wpnStatusEffect.Stun].Add("Tingling", 10);
+            wpnStatusEffectNames[(int)wpnStatusEffect.Stun].Add("Numbing", 20);
+            wpnStatusEffectNames[(int)wpnStatusEffect.Stun].Add("Stiffening", 30);
+            wpnStatusEffectNames[(int)wpnStatusEffect.Stun].Add("Immobilizing", 40);
+            wpnStatusEffectNames[(int)wpnStatusEffect.Stun].Add("Disabling", 50);
+            wpnStatusEffectNames[(int)wpnStatusEffect.Stun].Add("Debilitating", 60);
+            wpnStatusEffectNames[(int)wpnStatusEffect.Stun].Add("Paralyzing", 70);
+            wpnStatusEffectNames[(int)wpnStatusEffect.Stun].Add("Disarming", 80);
+            wpnStatusEffectNames[(int)wpnStatusEffect.Stun].Add("Arresting", 90);
+            wpnStatusEffectNames[(int)wpnStatusEffect.Stun].Add("Enfeebling", 100);
 
             //Freezing tiers
             wpnStatusEffectNames[(int)wpnStatusEffect.Freeze].Add("Chilling", 10);

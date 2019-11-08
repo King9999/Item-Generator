@@ -16,7 +16,7 @@ namespace Item_Generator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Weapon w = new Weapon();
+            //Weapon w = new Weapon();
             Application.Run(new ItemGenerator());
             
         }
