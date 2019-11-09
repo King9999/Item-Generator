@@ -24,9 +24,7 @@ namespace Item_Generator
 
         private void Tooltip_HealthPoints_Popup(object sender, PopupEventArgs e)
         {
-            ToolTip toolTip1 = new ToolTip();
-            toolTip1.ShowAlways = true;
-            toolTip1.SetToolTip(Label_HealthPoints, "Click me to execute.");
+            
         }
     }
 }

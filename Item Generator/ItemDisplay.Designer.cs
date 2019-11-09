@@ -34,19 +34,12 @@
             this.Label_ItemType = new System.Windows.Forms.Label();
             this.Label_ItemSubType = new System.Windows.Forms.Label();
             this.Label_HealthPoints = new System.Windows.Forms.Label();
-            this.TextBox_HealthPoints = new System.Windows.Forms.TextBox();
             this.Label_MagicPoints = new System.Windows.Forms.Label();
-            this.TextBox_MagicPoints = new System.Windows.Forms.TextBox();
             this.Label_AttackPower = new System.Windows.Forms.Label();
-            this.TextBox_AttackPower = new System.Windows.Forms.TextBox();
             this.Label_DefensePower = new System.Windows.Forms.Label();
-            this.TextBox_DefensePower = new System.Windows.Forms.TextBox();
             this.Label_Speed = new System.Windows.Forms.Label();
-            this.TextBox_Speed = new System.Windows.Forms.TextBox();
             this.Label_Accuracy = new System.Windows.Forms.Label();
-            this.TextBox_Accuracy = new System.Windows.Forms.TextBox();
             this.Label_MagicPower = new System.Windows.Forms.Label();
-            this.TextBox_MagicPower = new System.Windows.Forms.TextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.Label_AttackProperties = new System.Windows.Forms.Label();
             this.Label_Element = new System.Windows.Forms.Label();
@@ -102,13 +95,22 @@
             this.TextBox_PoisonDefValue = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.TextBox_HealthPoints = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_MagicPoints = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_AttackPower = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_DefensePower = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_Speed = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_Accuracy = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_MagicPower = new System.Windows.Forms.MaskedTextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.TextBox_Evasion = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Button_SaveAsXML
             // 
             this.Button_SaveAsXML.Location = new System.Drawing.Point(375, 799);
-            this.Button_SaveAsXML.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Button_SaveAsXML.Margin = new System.Windows.Forms.Padding(4);
             this.Button_SaveAsXML.Name = "Button_SaveAsXML";
             this.Button_SaveAsXML.Size = new System.Drawing.Size(133, 28);
             this.Button_SaveAsXML.TabIndex = 0;
@@ -130,7 +132,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(16, 47);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(155, 161);
             this.pictureBox1.TabIndex = 2;
@@ -166,14 +168,6 @@
             this.Label_HealthPoints.TabIndex = 5;
             this.Label_HealthPoints.Text = "Health Points Bonus";
             // 
-            // TextBox_HealthPoints
-            // 
-            this.TextBox_HealthPoints.Location = new System.Drawing.Point(291, 279);
-            this.TextBox_HealthPoints.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TextBox_HealthPoints.Name = "TextBox_HealthPoints";
-            this.TextBox_HealthPoints.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_HealthPoints.TabIndex = 6;
-            // 
             // Label_MagicPoints
             // 
             this.Label_MagicPoints.AutoSize = true;
@@ -183,14 +177,6 @@
             this.Label_MagicPoints.Size = new System.Drawing.Size(126, 16);
             this.Label_MagicPoints.TabIndex = 7;
             this.Label_MagicPoints.Text = "Magic Points Bonus";
-            // 
-            // TextBox_MagicPoints
-            // 
-            this.TextBox_MagicPoints.Location = new System.Drawing.Point(502, 279);
-            this.TextBox_MagicPoints.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TextBox_MagicPoints.Name = "TextBox_MagicPoints";
-            this.TextBox_MagicPoints.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_MagicPoints.TabIndex = 8;
             // 
             // Label_AttackPower
             // 
@@ -202,14 +188,6 @@
             this.Label_AttackPower.TabIndex = 9;
             this.Label_AttackPower.Text = "Attack Power";
             // 
-            // TextBox_AttackPower
-            // 
-            this.TextBox_AttackPower.Location = new System.Drawing.Point(180, 338);
-            this.TextBox_AttackPower.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TextBox_AttackPower.Name = "TextBox_AttackPower";
-            this.TextBox_AttackPower.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_AttackPower.TabIndex = 10;
-            // 
             // Label_DefensePower
             // 
             this.Label_DefensePower.AutoSize = true;
@@ -219,14 +197,6 @@
             this.Label_DefensePower.Size = new System.Drawing.Size(100, 16);
             this.Label_DefensePower.TabIndex = 11;
             this.Label_DefensePower.Text = "Defense Power";
-            // 
-            // TextBox_DefensePower
-            // 
-            this.TextBox_DefensePower.Location = new System.Drawing.Point(401, 338);
-            this.TextBox_DefensePower.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TextBox_DefensePower.Name = "TextBox_DefensePower";
-            this.TextBox_DefensePower.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_DefensePower.TabIndex = 12;
             // 
             // Label_Speed
             // 
@@ -238,54 +208,30 @@
             this.Label_Speed.TabIndex = 13;
             this.Label_Speed.Text = "Speed";
             // 
-            // TextBox_Speed
-            // 
-            this.TextBox_Speed.Location = new System.Drawing.Point(557, 338);
-            this.TextBox_Speed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TextBox_Speed.Name = "TextBox_Speed";
-            this.TextBox_Speed.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_Speed.TabIndex = 14;
-            // 
             // Label_Accuracy
             // 
             this.Label_Accuracy.AutoSize = true;
-            this.Label_Accuracy.Location = new System.Drawing.Point(103, 398);
+            this.Label_Accuracy.Location = new System.Drawing.Point(330, 401);
             this.Label_Accuracy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_Accuracy.Name = "Label_Accuracy";
             this.Label_Accuracy.Size = new System.Drawing.Size(64, 16);
             this.Label_Accuracy.TabIndex = 15;
             this.Label_Accuracy.Text = "Accuracy";
             // 
-            // TextBox_Accuracy
-            // 
-            this.TextBox_Accuracy.Location = new System.Drawing.Point(180, 394);
-            this.TextBox_Accuracy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TextBox_Accuracy.Name = "TextBox_Accuracy";
-            this.TextBox_Accuracy.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_Accuracy.TabIndex = 16;
-            // 
             // Label_MagicPower
             // 
             this.Label_MagicPower.AutoSize = true;
-            this.Label_MagicPower.Location = new System.Drawing.Point(301, 398);
+            this.Label_MagicPower.Location = new System.Drawing.Point(85, 401);
             this.Label_MagicPower.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_MagicPower.Name = "Label_MagicPower";
             this.Label_MagicPower.Size = new System.Drawing.Size(86, 16);
             this.Label_MagicPower.TabIndex = 17;
             this.Label_MagicPower.Text = "Magic Power";
             // 
-            // TextBox_MagicPower
-            // 
-            this.TextBox_MagicPower.Location = new System.Drawing.Point(401, 394);
-            this.TextBox_MagicPower.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TextBox_MagicPower.Name = "TextBox_MagicPower";
-            this.TextBox_MagicPower.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_MagicPower.TabIndex = 18;
-            // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(4, 842);
             this.splitter1.TabIndex = 19;
@@ -335,10 +281,11 @@
             // TextBox_FireAtkValue
             // 
             this.TextBox_FireAtkValue.Location = new System.Drawing.Point(143, 535);
-            this.TextBox_FireAtkValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBox_FireAtkValue.Margin = new System.Windows.Forms.Padding(4);
             this.TextBox_FireAtkValue.Name = "TextBox_FireAtkValue";
             this.TextBox_FireAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_FireAtkValue.TabIndex = 24;
+            this.TextBox_FireAtkValue.Text = "0%";
             // 
             // Label_Water
             // 
@@ -353,10 +300,11 @@
             // TextBox_WaterAtkValue
             // 
             this.TextBox_WaterAtkValue.Location = new System.Drawing.Point(265, 535);
-            this.TextBox_WaterAtkValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBox_WaterAtkValue.Margin = new System.Windows.Forms.Padding(4);
             this.TextBox_WaterAtkValue.Name = "TextBox_WaterAtkValue";
             this.TextBox_WaterAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_WaterAtkValue.TabIndex = 26;
+            this.TextBox_WaterAtkValue.Text = "0%";
             // 
             // Label_Wind
             // 
@@ -375,6 +323,7 @@
             this.TextBox_WindAtkValue.Name = "TextBox_WindAtkValue";
             this.TextBox_WindAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_WindAtkValue.TabIndex = 28;
+            this.TextBox_WindAtkValue.Text = "0%";
             // 
             // Label_Earth
             // 
@@ -393,6 +342,7 @@
             this.TextBox_EarthAtkValue.Name = "TextBox_EarthAtkValue";
             this.TextBox_EarthAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_EarthAtkValue.TabIndex = 30;
+            this.TextBox_EarthAtkValue.Text = "0%";
             // 
             // Label_Light
             // 
@@ -411,6 +361,7 @@
             this.TextBox_LightAtkValue.Name = "TextBox_LightAtkValue";
             this.TextBox_LightAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_LightAtkValue.TabIndex = 32;
+            this.TextBox_LightAtkValue.Text = "0%";
             // 
             // Label_Dark
             // 
@@ -429,6 +380,7 @@
             this.TextBox_DarkAtkValue.Name = "TextBox_DarkAtkValue";
             this.TextBox_DarkAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_DarkAtkValue.TabIndex = 34;
+            this.TextBox_DarkAtkValue.Text = "0%";
             // 
             // label1
             // 
@@ -466,6 +418,7 @@
             this.TextBox_DarkDefValue.Name = "TextBox_DarkDefValue";
             this.TextBox_DarkDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_DarkDefValue.TabIndex = 50;
+            this.TextBox_DarkDefValue.Text = "0%";
             // 
             // label4
             // 
@@ -484,6 +437,7 @@
             this.TextBox_LightDefValue.Name = "TextBox_LightDefValue";
             this.TextBox_LightDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_LightDefValue.TabIndex = 48;
+            this.TextBox_LightDefValue.Text = "0%";
             // 
             // label5
             // 
@@ -502,6 +456,7 @@
             this.TextBox_EarthDefValue.Name = "TextBox_EarthDefValue";
             this.TextBox_EarthDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_EarthDefValue.TabIndex = 46;
+            this.TextBox_EarthDefValue.Text = "0%";
             // 
             // label6
             // 
@@ -520,6 +475,7 @@
             this.TextBox_WindDefValue.Name = "TextBox_WindDefValue";
             this.TextBox_WindDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_WindDefValue.TabIndex = 44;
+            this.TextBox_WindDefValue.Text = "0%";
             // 
             // label7
             // 
@@ -538,6 +494,7 @@
             this.TextBox_WaterDefValue.Name = "TextBox_WaterDefValue";
             this.TextBox_WaterDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_WaterDefValue.TabIndex = 42;
+            this.TextBox_WaterDefValue.Text = "0%";
             // 
             // label8
             // 
@@ -556,6 +513,7 @@
             this.TextBox_FireDefValue.Name = "TextBox_FireDefValue";
             this.TextBox_FireDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_FireDefValue.TabIndex = 40;
+            this.TextBox_FireDefValue.Text = "0%";
             // 
             // label9
             // 
@@ -593,6 +551,7 @@
             this.TextBox_SleepAtkValue.Name = "TextBox_SleepAtkValue";
             this.TextBox_SleepAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_SleepAtkValue.TabIndex = 61;
+            this.TextBox_SleepAtkValue.Text = "0%";
             // 
             // label13
             // 
@@ -611,6 +570,7 @@
             this.TextBox_DeathAtkValue.Name = "TextBox_DeathAtkValue";
             this.TextBox_DeathAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_DeathAtkValue.TabIndex = 59;
+            this.TextBox_DeathAtkValue.Text = "0%";
             // 
             // label14
             // 
@@ -629,6 +589,7 @@
             this.TextBox_FreezeAtkValue.Name = "TextBox_FreezeAtkValue";
             this.TextBox_FreezeAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_FreezeAtkValue.TabIndex = 57;
+            this.TextBox_FreezeAtkValue.Text = "0%";
             // 
             // label15
             // 
@@ -647,6 +608,7 @@
             this.TextBox_StunAtkValue.Name = "TextBox_StunAtkValue";
             this.TextBox_StunAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_StunAtkValue.TabIndex = 55;
+            this.TextBox_StunAtkValue.Text = "0%";
             // 
             // label16
             // 
@@ -665,6 +627,7 @@
             this.TextBox_PoisonAtkValue.Name = "TextBox_PoisonAtkValue";
             this.TextBox_PoisonAtkValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_PoisonAtkValue.TabIndex = 53;
+            this.TextBox_PoisonAtkValue.Text = "0%";
             // 
             // label17
             // 
@@ -693,6 +656,7 @@
             this.TextBox_SleepDefValue.Name = "TextBox_SleepDefValue";
             this.TextBox_SleepDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_SleepDefValue.TabIndex = 73;
+            this.TextBox_SleepDefValue.Text = "0%";
             // 
             // label12
             // 
@@ -711,6 +675,7 @@
             this.TextBox_DeathDefValue.Name = "TextBox_DeathDefValue";
             this.TextBox_DeathDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_DeathDefValue.TabIndex = 71;
+            this.TextBox_DeathDefValue.Text = "0%";
             // 
             // label18
             // 
@@ -729,6 +694,7 @@
             this.TextBox_FreezeDefValue.Name = "TextBox_FreezeDefValue";
             this.TextBox_FreezeDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_FreezeDefValue.TabIndex = 69;
+            this.TextBox_FreezeDefValue.Text = "0%";
             // 
             // label19
             // 
@@ -747,6 +713,7 @@
             this.TextBox_StunDefValue.Name = "TextBox_StunDefValue";
             this.TextBox_StunDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_StunDefValue.TabIndex = 67;
+            this.TextBox_StunDefValue.Text = "0%";
             // 
             // label20
             // 
@@ -765,6 +732,7 @@
             this.TextBox_PoisonDefValue.Name = "TextBox_PoisonDefValue";
             this.TextBox_PoisonDefValue.Size = new System.Drawing.Size(59, 22);
             this.TextBox_PoisonDefValue.TabIndex = 65;
+            this.TextBox_PoisonDefValue.Text = "0%";
             // 
             // label21
             // 
@@ -786,11 +754,102 @@
             this.label22.TabIndex = 63;
             this.label22.Text = "Ailment";
             // 
+            // TextBox_HealthPoints
+            // 
+            this.TextBox_HealthPoints.Location = new System.Drawing.Point(290, 276);
+            this.TextBox_HealthPoints.Mask = "0099";
+            this.TextBox_HealthPoints.Name = "TextBox_HealthPoints";
+            this.TextBox_HealthPoints.Size = new System.Drawing.Size(66, 22);
+            this.TextBox_HealthPoints.TabIndex = 74;
+            this.TextBox_HealthPoints.Text = "0";
+            // 
+            // TextBox_MagicPoints
+            // 
+            this.TextBox_MagicPoints.Location = new System.Drawing.Point(502, 276);
+            this.TextBox_MagicPoints.Mask = "0099";
+            this.TextBox_MagicPoints.Name = "TextBox_MagicPoints";
+            this.TextBox_MagicPoints.Size = new System.Drawing.Size(66, 22);
+            this.TextBox_MagicPoints.TabIndex = 75;
+            this.TextBox_MagicPoints.Text = "0";
+            // 
+            // TextBox_AttackPower
+            // 
+            this.TextBox_AttackPower.Location = new System.Drawing.Point(180, 339);
+            this.TextBox_AttackPower.Mask = "0099";
+            this.TextBox_AttackPower.Name = "TextBox_AttackPower";
+            this.TextBox_AttackPower.Size = new System.Drawing.Size(66, 22);
+            this.TextBox_AttackPower.TabIndex = 76;
+            this.TextBox_AttackPower.Text = "0";
+            // 
+            // TextBox_DefensePower
+            // 
+            this.TextBox_DefensePower.Location = new System.Drawing.Point(401, 339);
+            this.TextBox_DefensePower.Mask = "0099";
+            this.TextBox_DefensePower.Name = "TextBox_DefensePower";
+            this.TextBox_DefensePower.Size = new System.Drawing.Size(66, 22);
+            this.TextBox_DefensePower.TabIndex = 77;
+            this.TextBox_DefensePower.Text = "0";
+            // 
+            // TextBox_Speed
+            // 
+            this.TextBox_Speed.Location = new System.Drawing.Point(555, 339);
+            this.TextBox_Speed.Mask = "0099";
+            this.TextBox_Speed.Name = "TextBox_Speed";
+            this.TextBox_Speed.Size = new System.Drawing.Size(66, 22);
+            this.TextBox_Speed.TabIndex = 78;
+            this.TextBox_Speed.Text = "0";
+            // 
+            // TextBox_Accuracy
+            // 
+            this.TextBox_Accuracy.Location = new System.Drawing.Point(401, 398);
+            this.TextBox_Accuracy.Mask = "099%";
+            this.TextBox_Accuracy.Name = "TextBox_Accuracy";
+            this.TextBox_Accuracy.Size = new System.Drawing.Size(66, 22);
+            this.TextBox_Accuracy.TabIndex = 79;
+            this.TextBox_Accuracy.Text = "0";
+            // 
+            // TextBox_MagicPower
+            // 
+            this.TextBox_MagicPower.Location = new System.Drawing.Point(180, 398);
+            this.TextBox_MagicPower.Mask = "0099";
+            this.TextBox_MagicPower.Name = "TextBox_MagicPower";
+            this.TextBox_MagicPower.Size = new System.Drawing.Size(66, 22);
+            this.TextBox_MagicPower.TabIndex = 80;
+            this.TextBox_MagicPower.Text = "0";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(499, 398);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(57, 16);
+            this.label23.TabIndex = 81;
+            this.label23.Text = "Evasion";
+            // 
+            // TextBox_Evasion
+            // 
+            this.TextBox_Evasion.Location = new System.Drawing.Point(555, 395);
+            this.TextBox_Evasion.Mask = "099%";
+            this.TextBox_Evasion.Name = "TextBox_Evasion";
+            this.TextBox_Evasion.Size = new System.Drawing.Size(66, 22);
+            this.TextBox_Evasion.TabIndex = 82;
+            this.TextBox_Evasion.Text = "0";
+            // 
             // ItemDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 842);
+            this.Controls.Add(this.TextBox_Evasion);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.TextBox_MagicPower);
+            this.Controls.Add(this.TextBox_Accuracy);
+            this.Controls.Add(this.TextBox_Speed);
+            this.Controls.Add(this.TextBox_DefensePower);
+            this.Controls.Add(this.TextBox_AttackPower);
+            this.Controls.Add(this.TextBox_MagicPoints);
+            this.Controls.Add(this.TextBox_HealthPoints);
             this.Controls.Add(this.TextBox_SleepDefValue);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.TextBox_DeathDefValue);
@@ -846,19 +905,12 @@
             this.Controls.Add(this.Label_Element);
             this.Controls.Add(this.Label_AttackProperties);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.TextBox_MagicPower);
             this.Controls.Add(this.Label_MagicPower);
-            this.Controls.Add(this.TextBox_Accuracy);
             this.Controls.Add(this.Label_Accuracy);
-            this.Controls.Add(this.TextBox_Speed);
             this.Controls.Add(this.Label_Speed);
-            this.Controls.Add(this.TextBox_DefensePower);
             this.Controls.Add(this.Label_DefensePower);
-            this.Controls.Add(this.TextBox_AttackPower);
             this.Controls.Add(this.Label_AttackPower);
-            this.Controls.Add(this.TextBox_MagicPoints);
             this.Controls.Add(this.Label_MagicPoints);
-            this.Controls.Add(this.TextBox_HealthPoints);
             this.Controls.Add(this.Label_HealthPoints);
             this.Controls.Add(this.Label_ItemSubType);
             this.Controls.Add(this.Label_ItemType);
@@ -866,7 +918,7 @@
             this.Controls.Add(this.Label_ItemName);
             this.Controls.Add(this.Button_SaveAsXML);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ItemDisplay";
             this.Text = "Item Display";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -883,19 +935,12 @@
         private System.Windows.Forms.Label Label_ItemType;
         private System.Windows.Forms.Label Label_ItemSubType;
         private System.Windows.Forms.Label Label_HealthPoints;
-        private System.Windows.Forms.TextBox TextBox_HealthPoints;
         private System.Windows.Forms.Label Label_MagicPoints;
-        private System.Windows.Forms.TextBox TextBox_MagicPoints;
         private System.Windows.Forms.Label Label_AttackPower;
-        private System.Windows.Forms.TextBox TextBox_AttackPower;
         private System.Windows.Forms.Label Label_DefensePower;
-        private System.Windows.Forms.TextBox TextBox_DefensePower;
         private System.Windows.Forms.Label Label_Speed;
-        private System.Windows.Forms.TextBox TextBox_Speed;
         private System.Windows.Forms.Label Label_Accuracy;
-        private System.Windows.Forms.TextBox TextBox_Accuracy;
         private System.Windows.Forms.Label Label_MagicPower;
-        private System.Windows.Forms.TextBox TextBox_MagicPower;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label Label_AttackProperties;
         private System.Windows.Forms.Label Label_Element;
@@ -951,5 +996,14 @@
         private System.Windows.Forms.TextBox TextBox_PoisonDefValue;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.MaskedTextBox TextBox_HealthPoints;
+        private System.Windows.Forms.MaskedTextBox TextBox_MagicPoints;
+        private System.Windows.Forms.MaskedTextBox TextBox_AttackPower;
+        private System.Windows.Forms.MaskedTextBox TextBox_DefensePower;
+        private System.Windows.Forms.MaskedTextBox TextBox_Speed;
+        private System.Windows.Forms.MaskedTextBox TextBox_Accuracy;
+        private System.Windows.Forms.MaskedTextBox TextBox_MagicPower;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.MaskedTextBox TextBox_Evasion;
     }
 }

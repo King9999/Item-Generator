@@ -33,11 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ComboBox_ItemSubType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TextBox_ItemLevel = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // ButtonGenerate
             // 
-            this.ButtonGenerate.Location = new System.Drawing.Point(176, 197);
+            this.ButtonGenerate.Location = new System.Drawing.Point(179, 254);
             this.ButtonGenerate.Name = "ButtonGenerate";
             this.ButtonGenerate.Size = new System.Drawing.Size(114, 35);
             this.ButtonGenerate.TabIndex = 0;
@@ -89,11 +91,32 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "2. Select item subtype:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 177);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Select Item Level (1-200):";
+            // 
+            // TextBox_ItemLevel
+            // 
+            this.TextBox_ItemLevel.Location = new System.Drawing.Point(168, 174);
+            this.TextBox_ItemLevel.Mask = "099";
+            this.TextBox_ItemLevel.Name = "TextBox_ItemLevel";
+            this.TextBox_ItemLevel.Size = new System.Drawing.Size(76, 20);
+            this.TextBox_ItemLevel.TabIndex = 7;
+            this.TextBox_ItemLevel.Text = "1";
+            this.TextBox_ItemLevel.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.TextBox_ItemLevel_MaskInputRejected);
+            // 
             // ItemGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 272);
+            this.ClientSize = new System.Drawing.Size(457, 301);
+            this.Controls.Add(this.TextBox_ItemLevel);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ComboBox_ItemSubType);
             this.Controls.Add(this.label1);
@@ -113,6 +136,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ComboBox_ItemSubType;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MaskedTextBox TextBox_ItemLevel;
     }
 }
 

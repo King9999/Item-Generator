@@ -38,8 +38,10 @@ namespace Item_Generator
         {
             //MessageBox.Show("Hello World!");
 
-            /* If the user doesn't select anything in the drop down boxes, throw an exception */
+            /* TODO: If the user doesn't select anything in the drop down boxes, throw an exception */
+            //TODO: Run the process to generate an item, and then call the item display form to show the results.
 
+            Console.WriteLine("Item Level is " + TextBox_ItemLevel.Text);
             ItemDisplay item = new ItemDisplay();
             item.Show();
         }
@@ -110,6 +112,12 @@ namespace Item_Generator
              * generated at runtime. */
 
            
+        }
+
+
+        private void TextBox_ItemLevel_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            
         }
     }
 }
