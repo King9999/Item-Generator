@@ -762,6 +762,7 @@
             this.TextBox_HealthPoints.Size = new System.Drawing.Size(66, 22);
             this.TextBox_HealthPoints.TabIndex = 74;
             this.TextBox_HealthPoints.Text = "0";
+            this.TextBox_HealthPoints.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.TextBox_HealthPoints_MaskInputRejected);
             // 
             // TextBox_MagicPoints
             // 

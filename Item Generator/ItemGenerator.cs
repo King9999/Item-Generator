@@ -76,8 +76,8 @@ namespace Item_Generator
                 //Console.WriteLine("Item Level is " + TextBox_ItemLevel.Text);
                 //ItemMaker maker = new ItemMaker();
                 //maker.GenerateItem(item, level);
-                ItemDisplay itemDisplay = new ItemDisplay();
-                itemDisplay.Show();
+                //ItemDisplay itemDisplay = new ItemDisplay();
+                //itemDisplay.Show();
             }
         }
 
