@@ -21,13 +21,9 @@ namespace Item_Generator
 
     public partial class ItemGenerator : Form
     {
-        const byte WEAPON = 0;
-        const byte ARMOR = 1;
-        const byte ACCESSORY = 2;
-        const byte CONSUMABLE = 3;
+        
 
-        //list
-
+        Weapon weapon;
 
         public ItemGenerator()
         {
@@ -39,11 +35,50 @@ namespace Item_Generator
             //MessageBox.Show("Hello World!");
 
             /* TODO: If the user doesn't select anything in the drop down boxes, throw an exception */
-            //TODO: Run the process to generate an item, and then call the item display form to show the results.
+            if (ComboBox_ItemSubType.Text == "" || ComboBox_ItemType.Text == "")
+                MessageBox.Show("Please select an item type and subtype!");
+            else
+            {
+                //Run the process to generate an item, and then call the item display form to show the results.
+                byte level = Byte.Parse(TextBox_ItemLevel.Text);
 
-            Console.WriteLine("Item Level is " + TextBox_ItemLevel.Text);
-            ItemDisplay item = new ItemDisplay();
-            item.Show();
+                //Check which item type was selected
+
+                int selectedItem = ComboBox_ItemType.SelectedIndex;
+                const int WEAPON = 0;
+                const int ARMOR = 1;
+                const int ACCESSORY = 2;
+
+                ItemMaker maker = new ItemMaker();
+
+                //int selectedItem = ComboBox_ItemType.SelectedIndex;
+                switch (selectedItem)
+                {
+                    case WEAPON:
+                        weapon = GenerateWeapon(weapon);
+                        maker.GenerateItem(weapon, level);
+                        break;
+
+                    /*case ARMOR:
+                        GenerateArmor(item);
+                        break;
+
+                    case ACCESSORY:
+                        GenerateAccessory(item);
+                        break;*/
+
+                    default:
+                        break;
+                }
+                
+
+
+                //Console.WriteLine("Item Level is " + TextBox_ItemLevel.Text);
+                //ItemMaker maker = new ItemMaker();
+                //maker.GenerateItem(item, level);
+                ItemDisplay itemDisplay = new ItemDisplay();
+                itemDisplay.Show();
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,6 +93,10 @@ namespace Item_Generator
 
             //Now we populate the subtype again
             int selectedItem = ComboBox_ItemType.SelectedIndex;
+            const int WEAPON = 0;
+            const int ARMOR = 1;
+            const int ACCESSORY = 2;
+
             switch (selectedItem)
             {
                 case WEAPON:
@@ -88,13 +127,13 @@ namespace Item_Generator
                     }
                     break;
 
-                case CONSUMABLE:
+                /*case CONSUMABLE:
                     {
                         ComboBox_ItemSubType.Items.Add("Healing");
                         ComboBox_ItemSubType.Items.Add("Attack");
                         ComboBox_ItemSubType.Items.Add("Support");
                     }
-                    break;
+                    break;*/
 
                 default:
                     break;
@@ -118,6 +157,46 @@ namespace Item_Generator
         private void TextBox_ItemLevel_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             
+        }
+
+        private Weapon GenerateWeapon(Weapon item)
+        {
+            int selectedItem = ComboBox_ItemSubType.SelectedIndex;
+            const int SWORD = 0;
+            const int AXE = 1;
+            const int SPEAR = 2;
+            const int BOW = 3;
+            const int STAFF = 4;
+
+            switch (selectedItem)
+            {
+                case SWORD:
+                    item = new Sword();
+                    break;
+
+               /* case AXE:
+                    item = new Axe();
+                    break;
+
+                case SPEAR:
+                    item = new Spear();
+                    break;
+
+                case BOW:
+                    item = new Bow();
+                    break;
+
+                case STAFF:
+                    item = new Staff();
+                    break;*/
+
+                default:
+                    break;
+            }
+
+            return item;
+            //assign the local item to the one created at the beginning of the class
+            //this.item = item;
         }
     }
 }

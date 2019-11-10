@@ -14,6 +14,7 @@ namespace Item_Generator
         public Sword()
         {
             WpnAcc = 0.85f;
+            ItemSubtype = "Sword";
         }
     }
 }

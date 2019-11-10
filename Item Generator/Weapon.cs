@@ -56,13 +56,14 @@ namespace Item_Generator
             WpnActiveStatusEffect = 0;
             ItemName = "";
             ItemRank = 0;
+            ItemType = "Weapon";
 
             /* Set up names. Prefixes are always status effects, while suffixes are always an element. The second value in the dictionary is the 
              * max percentage the weapon can have in a given tier. */
-            for (int i = 1; i < Enum.GetNames(typeof(WpnStatusEffect)).Length; i++)
+            for (int i = 0; i < Enum.GetNames(typeof(WpnStatusEffect)).Length; i++)
                 wpnStatusEffectNames.Add(new Dictionary<string, byte>());
 
-            for (int i = 1; i < Enum.GetNames(typeof(WpnElement)).Length; i++)
+            for (int i = 0; i < Enum.GetNames(typeof(WpnElement)).Length; i++)
                 wpnElementNames.Add(new Dictionary<string, byte>());
 
             /****Ailments. These are prefixes, which means weapon names can begin with these names. *****/
@@ -169,16 +170,16 @@ namespace Item_Generator
             wpnElementNames[(int)WpnElement.Earth].Add("of the Quake", 100);
 
             //Wind tiers
-            wpnElementNames[(int)WpnElement.Earth].Add("of Air", 10);
-            wpnElementNames[(int)WpnElement.Earth].Add("of the Breeze", 20);
-            wpnElementNames[(int)WpnElement.Earth].Add("of Gust", 30);
-            wpnElementNames[(int)WpnElement.Earth].Add("of Gales", 40);
-            wpnElementNames[(int)WpnElement.Earth].Add("of the Mistral", 50);
-            wpnElementNames[(int)WpnElement.Earth].Add("of the Twister", 60);
-            wpnElementNames[(int)WpnElement.Earth].Add("of the Squall", 70);
-            wpnElementNames[(int)WpnElement.Earth].Add("of the Maelstrom", 80);
-            wpnElementNames[(int)WpnElement.Earth].Add("of the Tempest", 90);
-            wpnElementNames[(int)WpnElement.Earth].Add("of the Cyclone", 100);
+            wpnElementNames[(int)WpnElement.Wind].Add("of Air", 10);
+            wpnElementNames[(int)WpnElement.Wind].Add("of the Breeze", 20);
+            wpnElementNames[(int)WpnElement.Wind].Add("of Gust", 30);
+            wpnElementNames[(int)WpnElement.Wind].Add("of Gales", 40);
+            wpnElementNames[(int)WpnElement.Wind].Add("of the Mistral", 50);
+            wpnElementNames[(int)WpnElement.Wind].Add("of the Twister", 60);
+            wpnElementNames[(int)WpnElement.Wind].Add("of the Squall", 70);
+            wpnElementNames[(int)WpnElement.Wind].Add("of the Maelstrom", 80);
+            wpnElementNames[(int)WpnElement.Wind].Add("of the Tempest", 90);
+            wpnElementNames[(int)WpnElement.Wind].Add("of the Cyclone", 100);
 
             //Light tiers
             wpnElementNames[(int)WpnElement.Light].Add("of Dawn", 10);

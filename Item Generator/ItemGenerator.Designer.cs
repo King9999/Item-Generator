@@ -54,8 +54,7 @@
             this.ComboBox_ItemType.Items.AddRange(new object[] {
             "Weapon",
             "Armor",
-            "Accessory",
-            "Consumable"});
+            "Accessory"});
             this.ComboBox_ItemType.Location = new System.Drawing.Point(168, 58);
             this.ComboBox_ItemType.Name = "ComboBox_ItemType";
             this.ComboBox_ItemType.Size = new System.Drawing.Size(163, 21);
@@ -108,6 +107,7 @@
             this.TextBox_ItemLevel.Size = new System.Drawing.Size(76, 20);
             this.TextBox_ItemLevel.TabIndex = 7;
             this.TextBox_ItemLevel.Text = "1";
+            this.TextBox_ItemLevel.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.TextBox_ItemLevel.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.TextBox_ItemLevel_MaskInputRejected);
             // 
             // ItemGenerator

@@ -27,14 +27,27 @@ namespace Item_Generator
         protected const short MAGICBONUS_MAX = 1000;
         protected const short SPEEDBONUS_MAX = 1000;
 
+        protected string ItemType;                  //type of item, e.g. weapon, armor, etc.
+        protected string ItemSubtype;               //eg. sword, shield, ring, etc.
+
         /* This function is used to execute any special effects an item might have. I won't actually use this for this tool, but it's my interpretation
         * of how a game might check for any special effects. */
-        protected void ExecuteSpecialAbility(short effectID)
+        protected virtual void ExecuteSpecialAbility(short effectID)
         {
 
         }
 
         #region Getters/Setters
+
+        public string GetItemType()
+        {
+            return ItemType;
+        }
+
+        public string GetItemSubtype()
+        {
+            return ItemSubtype;
+        }
 
         public byte GetItemLevel()
         {
