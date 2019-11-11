@@ -44,9 +44,20 @@ namespace Item_Generator
             return ItemType;
         }
 
+        public void SetItemType(string name)
+        {
+            ItemType = name;
+        }
+
+
         public string GetItemSubtype()
         {
             return ItemSubtype;
+        }
+
+        public void SetItemSubtype(string name)
+        {
+            ItemSubtype = name;
         }
 
         public byte GetItemLevel()

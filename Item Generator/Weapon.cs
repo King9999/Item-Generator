@@ -13,6 +13,8 @@ namespace Item_Generator
         protected short WpnMag;                 //Magic Power. Determines magical damage. Min value is 0. Generally applies to staff weapons, but other weapons can boost Mag.
         protected byte WpnElementAtkValue;
         protected byte WpnAilmentAtkValue;
+        protected short WpnAtkMod;              //a modifier for adjusting attack power.
+        protected short WpnMagMod;
 
         ////Constants////
         protected const short MAX_ATTACK = 9999;
@@ -65,6 +67,8 @@ namespace Item_Generator
             WpnAilmentAtkValue = 0;
             WpnActiveElement = WpnElement.None;
             WpnActiveAilment = WpnAilment.None;
+            WpnAtkMod = 1;
+            WpnMagMod = 1;
 
             /* Set up names. Prefixes are always status effects, while suffixes are always an element. The second value in the dictionary is the 
              * max percentage the weapon can have in a given tier. */
@@ -218,6 +222,8 @@ namespace Item_Generator
 
         #region Getters/Setters
 
+   
+
         public short GetAttackPower()
         {
             return WpnAtk;
@@ -230,6 +236,20 @@ namespace Item_Generator
                 WpnAtk = 1;
             if (WpnAtk > MAX_ATTACK)
                 WpnAtk = MAX_ATTACK;
+        }
+
+        public short GetMagicPower()
+        {
+            return WpnMag;
+        }
+
+        public void SetMagicPower(short mag)
+        {
+            WpnMag = mag;
+            if (WpnMag < 0)
+                WpnMag = 0;
+            if (WpnMag > MAX_MAGICATK)
+                WpnMag = MAX_MAGICATK;
         }
 
         public float GetAccuracy()
@@ -275,24 +295,32 @@ namespace Item_Generator
             return WpnElementAtkValue;
         }
 
-        /*public void SetElementAtkValue(byte atk)
-        {
-            WpnElementAtkValue = atk;
-            if (WpnElementAtkValue > 100)
-                WpnElementAtkValue = 100;
-        }*/
+       
 
         public byte GetAilmentAtkValue()
         {
             return WpnAilmentAtkValue;
         }
 
-        /*public void SetAilmentAtkValue(byte atk)
+        public short GetAtkMod()
         {
-            WpnAilmentAtkValue = atk;
-            if (WpnAilmentAtkValue > 100)
-                WpnAilmentAtkValue = 100;
-        }*/
+            return WpnAtkMod;
+        }
+
+        public void SetAtkMod(short val)
+        {
+            WpnAtkMod = val;
+        }
+
+        public short GetMagMod()
+        {
+            return WpnMagMod;
+        }
+
+        public void SetMagMod(short val)
+        {
+            WpnMagMod = val;
+        }
 
         public int GetCount(List<Dictionary<string, byte>> list)
         {

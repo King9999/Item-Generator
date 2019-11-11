@@ -21,6 +21,10 @@ namespace Item_Generator
 
         public void GenerateItem(Weapon weapon, byte level)
         {
+            //level cannot be less than 1
+            if (level < 1)
+                level = 1;
+
             weapon.SetItemLevel(level);
 
             //generate name, starting with prefix if applicable, then the weapon type, and then the suffix.
@@ -31,19 +35,23 @@ namespace Item_Generator
             Random randNum = new Random();
             string text = "";                    //this will be the ranomized name
 
-            //Each item has a success rate of having ailments or elements applied to them. The higher level the item is, the better chances of 
-            //special effects being applied, as well as the potency. Rates are a value from 0 to 100 percent.
-            double randomRate = randNum.NextDouble();
-            double ailmentRate = (randomRate * level) / weapon.GetMaxLevel();
-            randomRate = randNum.NextDouble();
-            double elementRate = (randomRate * level) / weapon.GetMaxLevel();
+            //set up attack power
+            int atk = randNum.Next(level * 5, level * 5 * weapon.GetAtkMod());
+            weapon.SetAttackPower((short)atk);
+            
 
-            Console.WriteLine("Ailment%: " + ailmentRate * 100);
-            Console.WriteLine("Element%: " + elementRate * 100);
+            //Each item has a success rate of having ailments or elements applied to them. The highest success rate is 50%.
+            double randomRate = randNum.NextDouble();
+            double ailmentRate = ((randomRate * level) / level) * 0.5;
+            randomRate = randNum.NextDouble();
+            double elementRate = ((randomRate * level) / level) * 0.5;
+
+            Console.WriteLine("Chance to add Ailment: " + ailmentRate * 100 + "%");
+            Console.WriteLine("Chance to add Element: " + elementRate * 100 + "%");
 
             //roll for ailments first
             randomRate = randNum.NextDouble();
-            Console.WriteLine("Random Rate for Ailments: " + randomRate * 100);
+            Console.WriteLine("Random Rate for Ailments: " + randomRate * 100 + "%");
 
             if (randomRate <= ailmentRate)
             {
@@ -59,14 +67,14 @@ namespace Item_Generator
                 //set the wepaon's ailment by casting val1 as enum
                 weapon.SetAilment((Weapon.WpnAilment)val1, (byte)ailmentAtk);
 
-                Console.WriteLine("New Ailment is " + Enum.GetName(typeof(Weapon.WpnAilment), weapon.GetAilment()));
+                //Console.WriteLine("New Ailment is " + Enum.GetName(typeof(Weapon.WpnAilment), weapon.GetAilment()));
             }
 
             text += weapon.GetItemSubtype();
 
             //roll for elements
             randomRate = randNum.NextDouble();
-            Console.WriteLine("Random Rate for Element: " + randomRate * 100);
+            Console.WriteLine("Random Rate for Element: " + randomRate * 100 + "%");
 
             if (randomRate <= elementRate)
             {
@@ -82,7 +90,65 @@ namespace Item_Generator
                 weapon.SetElement((Weapon.WpnElement)val1, (byte)elementAtk);
             }
 
-            weapon.SetItemName(text);
+            //Check for any ranks. Ranks boost a weapon's attack power (or mag power if weapon is a staff).
+            randomRate = randNum.NextDouble();
+            Console.WriteLine("Random Rate for Rank: " + randomRate * 100 + "%");
+            double rankRate3 = 0.02;
+            double rankRate2 = 0.1;
+            double rankRate1 = 0.25;
+
+            if (randomRate <= rankRate3)
+            {
+                text += "+++";
+                weapon.SetItemType("Enhanced Weapon");
+                weapon.SetRank(3);
+                if (weapon.GetItemSubtype().ToLower() == "staff")
+                {
+                    double boost = Math.Round(1.4f * weapon.GetMagicPower());
+                    weapon.SetMagicPower((short)boost);
+                }
+                else
+                {
+                    double boost = Math.Round(1.4f * weapon.GetAttackPower());
+                    weapon.SetAttackPower((short)boost);
+                }
+            }
+            else if (randomRate <= rankRate2)
+            {
+                text += "++";
+                weapon.SetItemType("Enhanced Weapon");
+                weapon.SetRank(2);
+                if (weapon.GetItemSubtype().ToLower() == "staff")
+                {
+                    double boost = Math.Round(1.25f * weapon.GetMagicPower());
+                    weapon.SetMagicPower((short)boost);
+                }
+                else
+                {
+                    double boost = Math.Round(1.25f * weapon.GetAttackPower());
+                    weapon.SetAttackPower((short)boost);
+                }
+            }
+            else if (randomRate <= rankRate1)
+            {
+                text += "+";
+                weapon.SetItemType("Enhanced Weapon");
+                weapon.SetRank(1);
+                //Console.WriteLine("Atk Value before boost: " + weapon.GetAttackPower());
+                if (weapon.GetItemSubtype().ToLower() == "staff")
+                {
+                    double boost = Math.Round(1.15f * weapon.GetMagicPower());
+                    weapon.SetMagicPower((short)boost);
+                }
+                else
+                {
+                    double boost = Math.Round(1.15f * weapon.GetAttackPower());
+                    weapon.SetAttackPower((short)boost);
+                }
+            }
+
+             //Name is complete
+             weapon.SetItemName(text);
 
             //set all values for the item display form
             itemDisplay.ItemName = text;
@@ -91,6 +157,9 @@ namespace Item_Generator
             itemDisplay.ItemSubType = weapon.GetItemSubtype();
             itemDisplay.ItemAilment = Enum.GetName(typeof(Weapon.WpnAilment), weapon.GetAilment());
             itemDisplay.ItemElement = Enum.GetName(typeof(Weapon.WpnElement), weapon.GetElement());
+            itemDisplay.Accuracy = (weapon.GetAccuracy() * 100).ToString();
+            itemDisplay.AttackPower = weapon.GetAttackPower().ToString();
+            itemDisplay.MagicPower = weapon.GetMagicPower().ToString();
 
             //need to check which elements/ailment values are set
             if (weapon.GetElement() != Weapon.WpnElement.None)
@@ -126,6 +195,36 @@ namespace Item_Generator
                 }
             }
 
+            if (weapon.GetAilment() != Weapon.WpnAilment.None)
+            {
+                switch (weapon.GetAilment())
+                {
+                    case Weapon.WpnAilment.Poison:
+                        itemDisplay.PoisonAtkValue = weapon.GetAilmentAtkValue().ToString();
+                        break;
+
+                    case Weapon.WpnAilment.Stun:
+                        itemDisplay.StunAtkValue = weapon.GetAilmentAtkValue().ToString();
+                        break;
+
+                    case Weapon.WpnAilment.Freeze:
+                        itemDisplay.FreezeAtkValue = weapon.GetAilmentAtkValue().ToString();
+                        break;
+
+                    case Weapon.WpnAilment.Death:
+                        itemDisplay.DeathAtkValue = weapon.GetAilmentAtkValue().ToString();
+                        break;
+
+                    case Weapon.WpnAilment.Sleep:
+                        itemDisplay.SleepAtkValue = weapon.GetAilmentAtkValue().ToString();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            //all done! Show the generated item.
             itemDisplay.Show();
             
         }

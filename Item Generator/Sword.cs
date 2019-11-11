@@ -15,6 +15,7 @@ namespace Item_Generator
         {
             WpnAcc = 0.85f;
             ItemSubtype = "Sword";
+            WpnAtkMod = 2;
         }
     }
 }
