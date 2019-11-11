@@ -103,7 +103,6 @@ namespace Item_Generator
                     {
                         ComboBox_ItemSubType.Items.Add("Sword");
                         ComboBox_ItemSubType.Items.Add("Axe");
-                        ComboBox_ItemSubType.Items.Add("Spear");
                         ComboBox_ItemSubType.Items.Add("Bow");
                         ComboBox_ItemSubType.Items.Add("Staff");
                     }
@@ -113,9 +112,7 @@ namespace Item_Generator
                     {
                         ComboBox_ItemSubType.Items.Add("Suit");
                         ComboBox_ItemSubType.Items.Add("Vest");
-                        ComboBox_ItemSubType.Items.Add("Robe");
-                        ComboBox_ItemSubType.Items.Add("Helm");
-                        ComboBox_ItemSubType.Items.Add("Shield");      
+                        ComboBox_ItemSubType.Items.Add("Robe");      
                     }
                     break;
 
@@ -164,9 +161,8 @@ namespace Item_Generator
             int selectedItem = ComboBox_ItemSubType.SelectedIndex;
             const int SWORD = 0;
             const int AXE = 1;
-            const int SPEAR = 2;
-            const int BOW = 3;
-            const int STAFF = 4;
+            const int BOW = 2;
+            const int STAFF = 3;
 
             switch (selectedItem)
             {
@@ -174,12 +170,8 @@ namespace Item_Generator
                     item = new Sword();
                     break;
 
-               /* case AXE:
+               case AXE:
                     item = new Axe();
-                    break;
-
-                case SPEAR:
-                    item = new Spear();
                     break;
 
                 case BOW:
@@ -188,7 +180,7 @@ namespace Item_Generator
 
                 case STAFF:
                     item = new Staff();
-                    break;*/
+                    break;
 
                 default:
                     break;

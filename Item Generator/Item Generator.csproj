@@ -45,7 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Axe.cs" />
+    <Compile Include="Bow.cs" />
     <Compile Include="ItemMaker.cs" />
+    <Compile Include="Staff.cs" />
     <Compile Include="Sword.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="Item.cs" />

@@ -12,11 +12,12 @@ namespace Item_Generator
     {
         //When user generates an item, start by checking what type of item they want.
         ItemDisplay itemDisplay;    //used to display the generated item.
+        static Random randNum;
 
         public ItemMaker()
         {
             itemDisplay = new ItemDisplay();    //used to display the generated item.
-             
+            randNum = new Random();
         }
 
         public void GenerateItem(Weapon weapon, byte level)
@@ -32,12 +33,24 @@ namespace Item_Generator
             total = total * (level / weapon.GetMaxLevel());     //This will control the strength of generated items. Higher level = better gear
             int elementCount = weapon.GetCount(weapon.GetWeaponElementNames());
             int ailmentCount = weapon.GetCount(weapon.GetWeaponAilmentNames());
-            Random randNum = new Random();
+            
             string text = "";                    //this will be the ranomized name
 
             //set up attack power
             int atk = randNum.Next(level * 5, level * 5 * weapon.GetAtkMod());
             weapon.SetAttackPower((short)atk);
+
+            //magic power
+            if (weapon.GetItemSubtype().ToLower() == "staff")
+            {
+                int mag = randNum.Next(level * 5, level * 5 * weapon.GetMagMod());
+                weapon.SetMagicPower((short)mag);
+            }
+
+            //Accuracy will have some variance, either -10 or +10 of the base
+            double accuracyRate = randNum.NextDouble() * ((weapon.GetAccuracy() + 0.1) - (weapon.GetAccuracy() - 0.1)) + (weapon.GetAccuracy() - 0.1);
+            accuracyRate = Math.Round(accuracyRate, 2);
+            weapon.SetAccuracy((float)accuracyRate);
             
 
             //Each item has a success rate of having ailments or elements applied to them. The highest success rate is 50%.
@@ -76,7 +89,7 @@ namespace Item_Generator
             randomRate = randNum.NextDouble();
             Console.WriteLine("Random Rate for Element: " + randomRate * 100 + "%");
 
-            if (randomRate <= elementRate)
+            if (randomRate <= elementRate * weapon.GetMagMod()) //staff has a better chance of having an element
             {
                 int val1 = randNum.Next(1, elementCount);       //we never reference index 0 because there's nothing there
                 int val2 = randNum.Next(0, total);
