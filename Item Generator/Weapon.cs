@@ -8,22 +8,24 @@ namespace Item_Generator
 {
     class Weapon : Item
     {
-        protected short WpnAtk { get; set; } //Attack Power. Determines physical damage. Minimum value is 0
-        protected float WpnAcc { get; set; } //Accuracy. Hit chance is a value between 0 and 1.
-        protected short WpnMag { get; set; } //Magic Power. Determines magical damage. Min value is 0. Generally applies to staff weapons, but other weapons can boost Mag.
-        protected byte WpnActiveElement { get; set; }        //if a weapon has a special effect, it will be determined here. Defaults to none, or 0.
-        protected byte WpnActiveStatusEffect { get; set; }
+        protected short WpnAtk;                 //Attack Power. Determines physical damage. Minimum value is 0
+        protected float WpnAcc;                 //Accuracy. Hit chance is a value between 0 and 1.
+        protected short WpnMag;                 //Magic Power. Determines magical damage. Min value is 0. Generally applies to staff weapons, but other weapons can boost Mag.
+        protected byte WpnElementAtkValue;
+        protected byte WpnAilmentAtkValue;
 
+        ////Constants////
         protected const short MAX_ATTACK = 9999;
-        protected const float MAX_ACCURACY = 1f;    //This can also be used for elements and status effect hit chance.
+        protected const float MAX_ACCURACY = 1f;    //This can also be used for elements and status effect hit chance
         protected const short MAX_MAGICATK = 9999;
+        
 
 
         /* The following lists of dictionaries are used to contain the prefixes and the strength values of each element/ailment */
         protected List<Dictionary<string, byte>> wpnElementNames = new List<Dictionary<string, byte>>();
-        protected List<Dictionary<string, byte>> wpnStatusEffectNames = new List<Dictionary<string, byte>>();
+        protected List<Dictionary<string, byte>> wpnAilmentNames = new List<Dictionary<string, byte>>();
 
-        protected enum WpnStatusEffect:byte
+        public enum WpnAilment:byte        //must be public so that getters/setters will work
         {
             None,
             Poison,
@@ -33,7 +35,7 @@ namespace Item_Generator
             Sleep
         }
 
-        protected enum WpnElement:byte
+        public enum WpnElement:byte
         {
             None,
             Fire,
@@ -44,24 +46,30 @@ namespace Item_Generator
             Dark
         }
 
+        protected WpnElement WpnActiveElement;        
+        protected WpnAilment WpnActiveAilment;
         
 
         public Weapon()
         {
             ItemLevel = 1;
-            WpnAtk = 0;
+            WpnAtk = 1;
             WpnAcc = 0;
             WpnMag = 0;
             WpnActiveElement = 0;       
-            WpnActiveStatusEffect = 0;
+            WpnActiveAilment = 0;
             ItemName = "";
             ItemRank = 0;
             ItemType = "Weapon";
+            WpnElementAtkValue = 0;
+            WpnAilmentAtkValue = 0;
+            WpnActiveElement = WpnElement.None;
+            WpnActiveAilment = WpnAilment.None;
 
             /* Set up names. Prefixes are always status effects, while suffixes are always an element. The second value in the dictionary is the 
              * max percentage the weapon can have in a given tier. */
-            for (int i = 0; i < Enum.GetNames(typeof(WpnStatusEffect)).Length; i++)
-                wpnStatusEffectNames.Add(new Dictionary<string, byte>());
+            for (int i = 0; i < Enum.GetNames(typeof(WpnAilment)).Length; i++)
+                wpnAilmentNames.Add(new Dictionary<string, byte>());
 
             for (int i = 0; i < Enum.GetNames(typeof(WpnElement)).Length; i++)
                 wpnElementNames.Add(new Dictionary<string, byte>());
@@ -69,67 +77,67 @@ namespace Item_Generator
             /****Ailments. These are prefixes, which means weapon names can begin with these names. *****/
 
             //Poison tiers
-            wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Add("Bacterial", 10);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Add("Contaminated", 20);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Add("Tainted", 30);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Add("Toxic", 40);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Add("Infected", 50);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Add("Viral", 60);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Add("Venomous", 70);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Add("Virulent", 80);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Add("Noxious", 90);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Add("Biohazardous", 100);
+            wpnAilmentNames[(int)WpnAilment.Poison].Add("Bacterial", 10);
+            wpnAilmentNames[(int)WpnAilment.Poison].Add("Contaminated", 20);
+            wpnAilmentNames[(int)WpnAilment.Poison].Add("Tainted", 30);
+            wpnAilmentNames[(int)WpnAilment.Poison].Add("Toxic", 40);
+            wpnAilmentNames[(int)WpnAilment.Poison].Add("Infected", 50);
+            wpnAilmentNames[(int)WpnAilment.Poison].Add("Viral", 60);
+            wpnAilmentNames[(int)WpnAilment.Poison].Add("Venomous", 70);
+            wpnAilmentNames[(int)WpnAilment.Poison].Add("Virulent", 80);
+            wpnAilmentNames[(int)WpnAilment.Poison].Add("Noxious", 90);
+            wpnAilmentNames[(int)WpnAilment.Poison].Add("Biohazardous", 100);
 
            
-            //Console.WriteLine(wpnStatusEffectNames[(int)WpnStatusEffect.Poison].Keys);
+            //Console.WriteLine(wpnAilmentNames[(int)WpnAilment.Poison].Keys);
 
             //Stun tiers
-            wpnStatusEffectNames[(int)WpnStatusEffect.Stun].Add("Tingling", 10);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Stun].Add("Numbing", 20);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Stun].Add("Stiffening", 30);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Stun].Add("Immobilizing", 40);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Stun].Add("Disabling", 50);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Stun].Add("Debilitating", 60);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Stun].Add("Paralyzing", 70);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Stun].Add("Disarming", 80);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Stun].Add("Arresting", 90);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Stun].Add("Enfeebling", 100);
+            wpnAilmentNames[(int)WpnAilment.Stun].Add("Tingling", 10);
+            wpnAilmentNames[(int)WpnAilment.Stun].Add("Numbing", 20);
+            wpnAilmentNames[(int)WpnAilment.Stun].Add("Stiffening", 30);
+            wpnAilmentNames[(int)WpnAilment.Stun].Add("Immobilizing", 40);
+            wpnAilmentNames[(int)WpnAilment.Stun].Add("Disabling", 50);
+            wpnAilmentNames[(int)WpnAilment.Stun].Add("Debilitating", 60);
+            wpnAilmentNames[(int)WpnAilment.Stun].Add("Paralyzing", 70);
+            wpnAilmentNames[(int)WpnAilment.Stun].Add("Disarming", 80);
+            wpnAilmentNames[(int)WpnAilment.Stun].Add("Arresting", 90);
+            wpnAilmentNames[(int)WpnAilment.Stun].Add("Enfeebling", 100);
 
             //Freezing tiers
-            wpnStatusEffectNames[(int)WpnStatusEffect.Freeze].Add("Chilling", 10);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Freeze].Add("Frosty", 20);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Freeze].Add("Icy", 30);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Freeze].Add("Biting", 40);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Freeze].Add("Polar", 50);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Freeze].Add("Glacial", 60);    //a weapon with this effect should be more likely to have water element
-            wpnStatusEffectNames[(int)WpnStatusEffect.Freeze].Add("Wintry", 70);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Freeze].Add("Frigid", 80);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Freeze].Add("Shivering", 90);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Freeze].Add("Icicle", 100);
+            wpnAilmentNames[(int)WpnAilment.Freeze].Add("Chilling", 10);
+            wpnAilmentNames[(int)WpnAilment.Freeze].Add("Frosty", 20);
+            wpnAilmentNames[(int)WpnAilment.Freeze].Add("Icy", 30);
+            wpnAilmentNames[(int)WpnAilment.Freeze].Add("Biting", 40);
+            wpnAilmentNames[(int)WpnAilment.Freeze].Add("Polar", 50);
+            wpnAilmentNames[(int)WpnAilment.Freeze].Add("Glacial", 60);    //a weapon with this effect should be more likely to have water element
+            wpnAilmentNames[(int)WpnAilment.Freeze].Add("Wintry", 70);
+            wpnAilmentNames[(int)WpnAilment.Freeze].Add("Frigid", 80);
+            wpnAilmentNames[(int)WpnAilment.Freeze].Add("Shivering", 90);
+            wpnAilmentNames[(int)WpnAilment.Freeze].Add("Icicle", 100);
 
             //Death tiers
-            wpnStatusEffectNames[(int)WpnStatusEffect.Death].Add("Dim", 10);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Death].Add("Shadow", 20);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Death].Add("Sinister", 30);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Death].Add("Blackened", 40);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Death].Add("Death", 50);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Death].Add("Disastrous", 60);    //a weapon with this effect should be more likely to have dark element
-            wpnStatusEffectNames[(int)WpnStatusEffect.Death].Add("Calamitous", 70);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Death].Add("Obliterating", 80);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Death].Add("Nihil", 90);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Death].Add("Void", 100);
+            wpnAilmentNames[(int)WpnAilment.Death].Add("Dim", 10);
+            wpnAilmentNames[(int)WpnAilment.Death].Add("Shadow", 20);
+            wpnAilmentNames[(int)WpnAilment.Death].Add("Sinister", 30);
+            wpnAilmentNames[(int)WpnAilment.Death].Add("Blackened", 40);
+            wpnAilmentNames[(int)WpnAilment.Death].Add("Death", 50);
+            wpnAilmentNames[(int)WpnAilment.Death].Add("Disastrous", 60);    //a weapon with this effect should be more likely to have dark element
+            wpnAilmentNames[(int)WpnAilment.Death].Add("Calamitous", 70);
+            wpnAilmentNames[(int)WpnAilment.Death].Add("Obliterating", 80);
+            wpnAilmentNames[(int)WpnAilment.Death].Add("Nihil", 90);
+            wpnAilmentNames[(int)WpnAilment.Death].Add("Void", 100);
 
             //Sleep tiers
-            wpnStatusEffectNames[(int)WpnStatusEffect.Sleep].Add("Drowsy", 10);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Sleep].Add("Torpid", 20);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Sleep].Add("Slumberous", 30);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Sleep].Add("Soporific", 40);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Sleep].Add("Sluggish", 50);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Sleep].Add("Somnolent", 60);    
-            wpnStatusEffectNames[(int)WpnStatusEffect.Sleep].Add("Hypnotic", 70);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Sleep].Add("Lethargic", 80);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Sleep].Add("Dreamy", 90);
-            wpnStatusEffectNames[(int)WpnStatusEffect.Sleep].Add("Nightmarish", 100);
+            wpnAilmentNames[(int)WpnAilment.Sleep].Add("Drowsy", 10);
+            wpnAilmentNames[(int)WpnAilment.Sleep].Add("Torpid", 20);
+            wpnAilmentNames[(int)WpnAilment.Sleep].Add("Slumberous", 30);
+            wpnAilmentNames[(int)WpnAilment.Sleep].Add("Soporific", 40);
+            wpnAilmentNames[(int)WpnAilment.Sleep].Add("Sluggish", 50);
+            wpnAilmentNames[(int)WpnAilment.Sleep].Add("Somnolent", 60);    
+            wpnAilmentNames[(int)WpnAilment.Sleep].Add("Hypnotic", 70);
+            wpnAilmentNames[(int)WpnAilment.Sleep].Add("Lethargic", 80);
+            wpnAilmentNames[(int)WpnAilment.Sleep].Add("Dreamy", 90);
+            wpnAilmentNames[(int)WpnAilment.Sleep].Add("Nightmarish", 100);
 
             /*****Elements. These are suffixes, which means they are added at the end of weapon names****/
 
@@ -208,6 +216,84 @@ namespace Item_Generator
 
         }
 
+        #region Getters/Setters
+
+        public short GetAttackPower()
+        {
+            return WpnAtk;
+        }
+
+        public void SetAttackPower(short atk)
+        {
+            WpnAtk = atk;
+            if (WpnAtk < 1)
+                WpnAtk = 1;
+            if (WpnAtk > MAX_ATTACK)
+                WpnAtk = MAX_ATTACK;
+        }
+
+        public float GetAccuracy()
+        {
+            return WpnAcc;
+        }
+
+        public void SetAccuracy(float acc)
+        {
+            WpnAcc = acc;
+            if (WpnAcc > MAX_ACCURACY)
+                WpnAcc = MAX_ACCURACY;
+        }
+
+        public WpnElement GetElement()
+        {
+            return WpnActiveElement;
+        }
+
+        public void SetElement(WpnElement element, byte value)
+        {
+            WpnActiveElement = element;
+            WpnElementAtkValue = value;
+            if (WpnElementAtkValue > 100)
+                WpnElementAtkValue = 100;
+        }
+
+        public WpnAilment GetAilment()
+        {
+            return WpnActiveAilment;
+        }
+
+        public void SetAilment(WpnAilment ailment, byte value)
+        {
+            WpnActiveAilment = ailment;
+            WpnAilmentAtkValue = value;
+            if (WpnAilmentAtkValue > 100)
+                WpnAilmentAtkValue = 100;
+        }
+
+        public byte GetElementAtkValue()
+        {
+            return WpnElementAtkValue;
+        }
+
+        /*public void SetElementAtkValue(byte atk)
+        {
+            WpnElementAtkValue = atk;
+            if (WpnElementAtkValue > 100)
+                WpnElementAtkValue = 100;
+        }*/
+
+        public byte GetAilmentAtkValue()
+        {
+            return WpnAilmentAtkValue;
+        }
+
+        /*public void SetAilmentAtkValue(byte atk)
+        {
+            WpnAilmentAtkValue = atk;
+            if (WpnAilmentAtkValue > 100)
+                WpnAilmentAtkValue = 100;
+        }*/
+
         public int GetCount(List<Dictionary<string, byte>> list)
         {
             return list.Count;
@@ -218,9 +304,9 @@ namespace Item_Generator
             return wpnElementNames;
         }
 
-        public List<Dictionary<string, byte>> GetWeaponStatusEffectNames()
+        public List<Dictionary<string, byte>> GetWeaponAilmentNames()
         {
-            return wpnStatusEffectNames;
+            return wpnAilmentNames;
         }
 
         public short GetMaxAttackPower()
@@ -237,6 +323,8 @@ namespace Item_Generator
         {
             return MAX_ACCURACY;
         }
+
+        #endregion
 
     }
 }

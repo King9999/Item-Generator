@@ -45,54 +45,32 @@
             this.Label_Element = new System.Windows.Forms.Label();
             this.Label_Ailment = new System.Windows.Forms.Label();
             this.Label_Fire = new System.Windows.Forms.Label();
-            this.TextBox_FireAtkValue = new System.Windows.Forms.TextBox();
             this.Label_Water = new System.Windows.Forms.Label();
-            this.TextBox_WaterAtkValue = new System.Windows.Forms.TextBox();
             this.Label_Wind = new System.Windows.Forms.Label();
-            this.TextBox_WindAtkValue = new System.Windows.Forms.TextBox();
             this.Label_Earth = new System.Windows.Forms.Label();
-            this.TextBox_EarthAtkValue = new System.Windows.Forms.TextBox();
             this.Label_Light = new System.Windows.Forms.Label();
-            this.TextBox_LightAtkValue = new System.Windows.Forms.TextBox();
             this.Label_Dark = new System.Windows.Forms.Label();
-            this.TextBox_DarkAtkValue = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.TextBox_DarkDefValue = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.TextBox_LightDefValue = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.TextBox_EarthDefValue = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.TextBox_WindDefValue = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.TextBox_WaterDefValue = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.TextBox_FireDefValue = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.TextBox_SleepAtkValue = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.TextBox_DeathAtkValue = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.TextBox_FreezeAtkValue = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.TextBox_StunAtkValue = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.TextBox_PoisonAtkValue = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.Label_ItemLevel = new System.Windows.Forms.Label();
-            this.TextBox_SleepDefValue = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.TextBox_DeathDefValue = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.TextBox_FreezeDefValue = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.TextBox_StunDefValue = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.TextBox_PoisonDefValue = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.TextBox_HealthPoints = new System.Windows.Forms.MaskedTextBox();
@@ -104,6 +82,32 @@
             this.TextBox_MagicPower = new System.Windows.Forms.MaskedTextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.TextBox_Evasion = new System.Windows.Forms.MaskedTextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.Label_AilmentType = new System.Windows.Forms.Label();
+            this.Label_ElementType = new System.Windows.Forms.Label();
+            this.TextBox_FireAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_WaterAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_WindAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_EarthAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_LightAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_DarkAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_PoisonAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_StunAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_FreezeAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_DeathAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_SleepAtkValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_FireDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_WaterDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_WindDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_EarthDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_LightDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_DarkDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_PoisonDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_StunDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_FreezeDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_DeathDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.TextBox_SleepDefValue = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,7 +145,7 @@
             // Label_ItemType
             // 
             this.Label_ItemType.AutoSize = true;
-            this.Label_ItemType.Location = new System.Drawing.Point(213, 116);
+            this.Label_ItemType.Location = new System.Drawing.Point(215, 102);
             this.Label_ItemType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_ItemType.Name = "Label_ItemType";
             this.Label_ItemType.Size = new System.Drawing.Size(68, 16);
@@ -151,7 +155,7 @@
             // Label_ItemSubType
             // 
             this.Label_ItemSubType.AutoSize = true;
-            this.Label_ItemSubType.Location = new System.Drawing.Point(213, 147);
+            this.Label_ItemSubType.Location = new System.Drawing.Point(215, 130);
             this.Label_ItemSubType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_ItemSubType.Name = "Label_ItemSubType";
             this.Label_ItemSubType.Size = new System.Drawing.Size(86, 16);
@@ -181,7 +185,7 @@
             // Label_AttackPower
             // 
             this.Label_AttackPower.AutoSize = true;
-            this.Label_AttackPower.Location = new System.Drawing.Point(77, 342);
+            this.Label_AttackPower.Location = new System.Drawing.Point(125, 342);
             this.Label_AttackPower.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_AttackPower.Name = "Label_AttackPower";
             this.Label_AttackPower.Size = new System.Drawing.Size(86, 16);
@@ -191,7 +195,7 @@
             // Label_DefensePower
             // 
             this.Label_DefensePower.AutoSize = true;
-            this.Label_DefensePower.Location = new System.Drawing.Point(287, 342);
+            this.Label_DefensePower.Location = new System.Drawing.Point(306, 342);
             this.Label_DefensePower.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_DefensePower.Name = "Label_DefensePower";
             this.Label_DefensePower.Size = new System.Drawing.Size(100, 16);
@@ -201,7 +205,7 @@
             // Label_Speed
             // 
             this.Label_Speed.AutoSize = true;
-            this.Label_Speed.Location = new System.Drawing.Point(499, 342);
+            this.Label_Speed.Location = new System.Drawing.Point(519, 342);
             this.Label_Speed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_Speed.Name = "Label_Speed";
             this.Label_Speed.Size = new System.Drawing.Size(49, 16);
@@ -214,14 +218,14 @@
             this.Label_Accuracy.Location = new System.Drawing.Point(330, 401);
             this.Label_Accuracy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_Accuracy.Name = "Label_Accuracy";
-            this.Label_Accuracy.Size = new System.Drawing.Size(64, 16);
+            this.Label_Accuracy.Size = new System.Drawing.Size(76, 16);
             this.Label_Accuracy.TabIndex = 15;
-            this.Label_Accuracy.Text = "Accuracy";
+            this.Label_Accuracy.Text = "Accuracy%";
             // 
             // Label_MagicPower
             // 
             this.Label_MagicPower.AutoSize = true;
-            this.Label_MagicPower.Location = new System.Drawing.Point(85, 401);
+            this.Label_MagicPower.Location = new System.Drawing.Point(124, 401);
             this.Label_MagicPower.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_MagicPower.Name = "Label_MagicPower";
             this.Label_MagicPower.Size = new System.Drawing.Size(86, 16);
@@ -254,9 +258,9 @@
             this.Label_Element.Location = new System.Drawing.Point(13, 572);
             this.Label_Element.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_Element.Name = "Label_Element";
-            this.Label_Element.Size = new System.Drawing.Size(57, 16);
+            this.Label_Element.Size = new System.Drawing.Size(72, 16);
             this.Label_Element.TabIndex = 21;
-            this.Label_Element.Text = "Element";
+            this.Label_Element.Text = "Element %";
             // 
             // Label_Ailment
             // 
@@ -264,9 +268,9 @@
             this.Label_Ailment.Location = new System.Drawing.Point(13, 678);
             this.Label_Ailment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_Ailment.Name = "Label_Ailment";
-            this.Label_Ailment.Size = new System.Drawing.Size(52, 16);
+            this.Label_Ailment.Size = new System.Drawing.Size(67, 16);
             this.Label_Ailment.TabIndex = 22;
-            this.Label_Ailment.Text = "Ailment";
+            this.Label_Ailment.Text = "Ailment %";
             // 
             // Label_Fire
             // 
@@ -278,15 +282,6 @@
             this.Label_Fire.TabIndex = 23;
             this.Label_Fire.Text = "Fire";
             // 
-            // TextBox_FireAtkValue
-            // 
-            this.TextBox_FireAtkValue.Location = new System.Drawing.Point(143, 535);
-            this.TextBox_FireAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_FireAtkValue.Name = "TextBox_FireAtkValue";
-            this.TextBox_FireAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_FireAtkValue.TabIndex = 24;
-            this.TextBox_FireAtkValue.Text = "0%";
-            // 
             // Label_Water
             // 
             this.Label_Water.AutoSize = true;
@@ -296,15 +291,6 @@
             this.Label_Water.Size = new System.Drawing.Size(44, 16);
             this.Label_Water.TabIndex = 25;
             this.Label_Water.Text = "Water";
-            // 
-            // TextBox_WaterAtkValue
-            // 
-            this.TextBox_WaterAtkValue.Location = new System.Drawing.Point(265, 535);
-            this.TextBox_WaterAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_WaterAtkValue.Name = "TextBox_WaterAtkValue";
-            this.TextBox_WaterAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_WaterAtkValue.TabIndex = 26;
-            this.TextBox_WaterAtkValue.Text = "0%";
             // 
             // Label_Wind
             // 
@@ -316,15 +302,6 @@
             this.Label_Wind.TabIndex = 27;
             this.Label_Wind.Text = "Wind";
             // 
-            // TextBox_WindAtkValue
-            // 
-            this.TextBox_WindAtkValue.Location = new System.Drawing.Point(375, 536);
-            this.TextBox_WindAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_WindAtkValue.Name = "TextBox_WindAtkValue";
-            this.TextBox_WindAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_WindAtkValue.TabIndex = 28;
-            this.TextBox_WindAtkValue.Text = "0%";
-            // 
             // Label_Earth
             // 
             this.Label_Earth.AutoSize = true;
@@ -334,15 +311,6 @@
             this.Label_Earth.Size = new System.Drawing.Size(39, 16);
             this.Label_Earth.TabIndex = 29;
             this.Label_Earth.Text = "Earth";
-            // 
-            // TextBox_EarthAtkValue
-            // 
-            this.TextBox_EarthAtkValue.Location = new System.Drawing.Point(143, 591);
-            this.TextBox_EarthAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_EarthAtkValue.Name = "TextBox_EarthAtkValue";
-            this.TextBox_EarthAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_EarthAtkValue.TabIndex = 30;
-            this.TextBox_EarthAtkValue.Text = "0%";
             // 
             // Label_Light
             // 
@@ -354,15 +322,6 @@
             this.Label_Light.TabIndex = 31;
             this.Label_Light.Text = "Light";
             // 
-            // TextBox_LightAtkValue
-            // 
-            this.TextBox_LightAtkValue.Location = new System.Drawing.Point(265, 594);
-            this.TextBox_LightAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_LightAtkValue.Name = "TextBox_LightAtkValue";
-            this.TextBox_LightAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_LightAtkValue.TabIndex = 32;
-            this.TextBox_LightAtkValue.Text = "0%";
-            // 
             // Label_Dark
             // 
             this.Label_Dark.AutoSize = true;
@@ -372,15 +331,6 @@
             this.Label_Dark.Size = new System.Drawing.Size(37, 16);
             this.Label_Dark.TabIndex = 33;
             this.Label_Dark.Text = "Dark";
-            // 
-            // TextBox_DarkAtkValue
-            // 
-            this.TextBox_DarkAtkValue.Location = new System.Drawing.Point(375, 594);
-            this.TextBox_DarkAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_DarkAtkValue.Name = "TextBox_DarkAtkValue";
-            this.TextBox_DarkAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_DarkAtkValue.TabIndex = 34;
-            this.TextBox_DarkAtkValue.Text = "0%";
             // 
             // label1
             // 
@@ -411,15 +361,6 @@
             this.label3.TabIndex = 37;
             this.label3.Text = "DEFENSE PROPERTIES";
             // 
-            // TextBox_DarkDefValue
-            // 
-            this.TextBox_DarkDefValue.Location = new System.Drawing.Point(818, 594);
-            this.TextBox_DarkDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_DarkDefValue.Name = "TextBox_DarkDefValue";
-            this.TextBox_DarkDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_DarkDefValue.TabIndex = 50;
-            this.TextBox_DarkDefValue.Text = "0%";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -429,15 +370,6 @@
             this.label4.Size = new System.Drawing.Size(37, 16);
             this.label4.TabIndex = 49;
             this.label4.Text = "Dark";
-            // 
-            // TextBox_LightDefValue
-            // 
-            this.TextBox_LightDefValue.Location = new System.Drawing.Point(708, 594);
-            this.TextBox_LightDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_LightDefValue.Name = "TextBox_LightDefValue";
-            this.TextBox_LightDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_LightDefValue.TabIndex = 48;
-            this.TextBox_LightDefValue.Text = "0%";
             // 
             // label5
             // 
@@ -449,15 +381,6 @@
             this.label5.TabIndex = 47;
             this.label5.Text = "Light";
             // 
-            // TextBox_EarthDefValue
-            // 
-            this.TextBox_EarthDefValue.Location = new System.Drawing.Point(586, 591);
-            this.TextBox_EarthDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_EarthDefValue.Name = "TextBox_EarthDefValue";
-            this.TextBox_EarthDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_EarthDefValue.TabIndex = 46;
-            this.TextBox_EarthDefValue.Text = "0%";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -467,15 +390,6 @@
             this.label6.Size = new System.Drawing.Size(39, 16);
             this.label6.TabIndex = 45;
             this.label6.Text = "Earth";
-            // 
-            // TextBox_WindDefValue
-            // 
-            this.TextBox_WindDefValue.Location = new System.Drawing.Point(818, 536);
-            this.TextBox_WindDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_WindDefValue.Name = "TextBox_WindDefValue";
-            this.TextBox_WindDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_WindDefValue.TabIndex = 44;
-            this.TextBox_WindDefValue.Text = "0%";
             // 
             // label7
             // 
@@ -487,15 +401,6 @@
             this.label7.TabIndex = 43;
             this.label7.Text = "Wind";
             // 
-            // TextBox_WaterDefValue
-            // 
-            this.TextBox_WaterDefValue.Location = new System.Drawing.Point(708, 535);
-            this.TextBox_WaterDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_WaterDefValue.Name = "TextBox_WaterDefValue";
-            this.TextBox_WaterDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_WaterDefValue.TabIndex = 42;
-            this.TextBox_WaterDefValue.Text = "0%";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -505,15 +410,6 @@
             this.label8.Size = new System.Drawing.Size(44, 16);
             this.label8.TabIndex = 41;
             this.label8.Text = "Water";
-            // 
-            // TextBox_FireDefValue
-            // 
-            this.TextBox_FireDefValue.Location = new System.Drawing.Point(586, 535);
-            this.TextBox_FireDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_FireDefValue.Name = "TextBox_FireDefValue";
-            this.TextBox_FireDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_FireDefValue.TabIndex = 40;
-            this.TextBox_FireDefValue.Text = "0%";
             // 
             // label9
             // 
@@ -531,9 +427,9 @@
             this.label10.Location = new System.Drawing.Point(463, 572);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 16);
+            this.label10.Size = new System.Drawing.Size(72, 16);
             this.label10.TabIndex = 38;
-            this.label10.Text = "Element";
+            this.label10.Text = "Element %";
             // 
             // label11
             // 
@@ -543,15 +439,6 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(432, 2);
             this.label11.TabIndex = 51;
-            // 
-            // TextBox_SleepAtkValue
-            // 
-            this.TextBox_SleepAtkValue.Location = new System.Drawing.Point(265, 711);
-            this.TextBox_SleepAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_SleepAtkValue.Name = "TextBox_SleepAtkValue";
-            this.TextBox_SleepAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_SleepAtkValue.TabIndex = 61;
-            this.TextBox_SleepAtkValue.Text = "0%";
             // 
             // label13
             // 
@@ -563,15 +450,6 @@
             this.label13.TabIndex = 60;
             this.label13.Text = "Sleep";
             // 
-            // TextBox_DeathAtkValue
-            // 
-            this.TextBox_DeathAtkValue.Location = new System.Drawing.Point(143, 711);
-            this.TextBox_DeathAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_DeathAtkValue.Name = "TextBox_DeathAtkValue";
-            this.TextBox_DeathAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_DeathAtkValue.TabIndex = 59;
-            this.TextBox_DeathAtkValue.Text = "0%";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -581,15 +459,6 @@
             this.label14.Size = new System.Drawing.Size(44, 16);
             this.label14.TabIndex = 58;
             this.label14.Text = "Death";
-            // 
-            // TextBox_FreezeAtkValue
-            // 
-            this.TextBox_FreezeAtkValue.Location = new System.Drawing.Point(388, 655);
-            this.TextBox_FreezeAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_FreezeAtkValue.Name = "TextBox_FreezeAtkValue";
-            this.TextBox_FreezeAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_FreezeAtkValue.TabIndex = 57;
-            this.TextBox_FreezeAtkValue.Text = "0%";
             // 
             // label15
             // 
@@ -601,15 +470,6 @@
             this.label15.TabIndex = 56;
             this.label15.Text = "Freeze";
             // 
-            // TextBox_StunAtkValue
-            // 
-            this.TextBox_StunAtkValue.Location = new System.Drawing.Point(265, 655);
-            this.TextBox_StunAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_StunAtkValue.Name = "TextBox_StunAtkValue";
-            this.TextBox_StunAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_StunAtkValue.TabIndex = 55;
-            this.TextBox_StunAtkValue.Text = "0%";
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -619,15 +479,6 @@
             this.label16.Size = new System.Drawing.Size(34, 16);
             this.label16.TabIndex = 54;
             this.label16.Text = "Stun";
-            // 
-            // TextBox_PoisonAtkValue
-            // 
-            this.TextBox_PoisonAtkValue.Location = new System.Drawing.Point(143, 655);
-            this.TextBox_PoisonAtkValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_PoisonAtkValue.Name = "TextBox_PoisonAtkValue";
-            this.TextBox_PoisonAtkValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_PoisonAtkValue.TabIndex = 53;
-            this.TextBox_PoisonAtkValue.Text = "0%";
             // 
             // label17
             // 
@@ -642,21 +493,12 @@
             // Label_ItemLevel
             // 
             this.Label_ItemLevel.AutoSize = true;
-            this.Label_ItemLevel.Location = new System.Drawing.Point(213, 179);
+            this.Label_ItemLevel.Location = new System.Drawing.Point(215, 192);
             this.Label_ItemLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_ItemLevel.Name = "Label_ItemLevel";
             this.Label_ItemLevel.Size = new System.Drawing.Size(69, 16);
             this.Label_ItemLevel.TabIndex = 62;
             this.Label_ItemLevel.Text = "Item Level";
-            // 
-            // TextBox_SleepDefValue
-            // 
-            this.TextBox_SleepDefValue.Location = new System.Drawing.Point(708, 708);
-            this.TextBox_SleepDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_SleepDefValue.Name = "TextBox_SleepDefValue";
-            this.TextBox_SleepDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_SleepDefValue.TabIndex = 73;
-            this.TextBox_SleepDefValue.Text = "0%";
             // 
             // label12
             // 
@@ -668,15 +510,6 @@
             this.label12.TabIndex = 72;
             this.label12.Text = "Sleep";
             // 
-            // TextBox_DeathDefValue
-            // 
-            this.TextBox_DeathDefValue.Location = new System.Drawing.Point(586, 708);
-            this.TextBox_DeathDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_DeathDefValue.Name = "TextBox_DeathDefValue";
-            this.TextBox_DeathDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_DeathDefValue.TabIndex = 71;
-            this.TextBox_DeathDefValue.Text = "0%";
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -686,15 +519,6 @@
             this.label18.Size = new System.Drawing.Size(44, 16);
             this.label18.TabIndex = 70;
             this.label18.Text = "Death";
-            // 
-            // TextBox_FreezeDefValue
-            // 
-            this.TextBox_FreezeDefValue.Location = new System.Drawing.Point(821, 652);
-            this.TextBox_FreezeDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_FreezeDefValue.Name = "TextBox_FreezeDefValue";
-            this.TextBox_FreezeDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_FreezeDefValue.TabIndex = 69;
-            this.TextBox_FreezeDefValue.Text = "0%";
             // 
             // label19
             // 
@@ -706,15 +530,6 @@
             this.label19.TabIndex = 68;
             this.label19.Text = "Freeze";
             // 
-            // TextBox_StunDefValue
-            // 
-            this.TextBox_StunDefValue.Location = new System.Drawing.Point(708, 652);
-            this.TextBox_StunDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_StunDefValue.Name = "TextBox_StunDefValue";
-            this.TextBox_StunDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_StunDefValue.TabIndex = 67;
-            this.TextBox_StunDefValue.Text = "0%";
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -724,15 +539,6 @@
             this.label20.Size = new System.Drawing.Size(34, 16);
             this.label20.TabIndex = 66;
             this.label20.Text = "Stun";
-            // 
-            // TextBox_PoisonDefValue
-            // 
-            this.TextBox_PoisonDefValue.Location = new System.Drawing.Point(586, 652);
-            this.TextBox_PoisonDefValue.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBox_PoisonDefValue.Name = "TextBox_PoisonDefValue";
-            this.TextBox_PoisonDefValue.Size = new System.Drawing.Size(59, 22);
-            this.TextBox_PoisonDefValue.TabIndex = 65;
-            this.TextBox_PoisonDefValue.Text = "0%";
             // 
             // label21
             // 
@@ -750,9 +556,9 @@
             this.label22.Location = new System.Drawing.Point(463, 678);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(52, 16);
+            this.label22.Size = new System.Drawing.Size(67, 16);
             this.label22.TabIndex = 63;
-            this.label22.Text = "Ailment";
+            this.label22.Text = "Ailment %";
             // 
             // TextBox_HealthPoints
             // 
@@ -775,7 +581,7 @@
             // 
             // TextBox_AttackPower
             // 
-            this.TextBox_AttackPower.Location = new System.Drawing.Point(180, 339);
+            this.TextBox_AttackPower.Location = new System.Drawing.Point(218, 339);
             this.TextBox_AttackPower.Mask = "0099";
             this.TextBox_AttackPower.Name = "TextBox_AttackPower";
             this.TextBox_AttackPower.Size = new System.Drawing.Size(66, 22);
@@ -784,7 +590,7 @@
             // 
             // TextBox_DefensePower
             // 
-            this.TextBox_DefensePower.Location = new System.Drawing.Point(401, 339);
+            this.TextBox_DefensePower.Location = new System.Drawing.Point(413, 339);
             this.TextBox_DefensePower.Mask = "0099";
             this.TextBox_DefensePower.Name = "TextBox_DefensePower";
             this.TextBox_DefensePower.Size = new System.Drawing.Size(66, 22);
@@ -793,7 +599,7 @@
             // 
             // TextBox_Speed
             // 
-            this.TextBox_Speed.Location = new System.Drawing.Point(555, 339);
+            this.TextBox_Speed.Location = new System.Drawing.Point(575, 339);
             this.TextBox_Speed.Mask = "0099";
             this.TextBox_Speed.Name = "TextBox_Speed";
             this.TextBox_Speed.Size = new System.Drawing.Size(66, 22);
@@ -802,8 +608,8 @@
             // 
             // TextBox_Accuracy
             // 
-            this.TextBox_Accuracy.Location = new System.Drawing.Point(401, 398);
-            this.TextBox_Accuracy.Mask = "099%";
+            this.TextBox_Accuracy.Location = new System.Drawing.Point(413, 398);
+            this.TextBox_Accuracy.Mask = "099";
             this.TextBox_Accuracy.Name = "TextBox_Accuracy";
             this.TextBox_Accuracy.Size = new System.Drawing.Size(66, 22);
             this.TextBox_Accuracy.TabIndex = 79;
@@ -811,7 +617,7 @@
             // 
             // TextBox_MagicPower
             // 
-            this.TextBox_MagicPower.Location = new System.Drawing.Point(180, 398);
+            this.TextBox_MagicPower.Location = new System.Drawing.Point(217, 395);
             this.TextBox_MagicPower.Mask = "0099";
             this.TextBox_MagicPower.Name = "TextBox_MagicPower";
             this.TextBox_MagicPower.Size = new System.Drawing.Size(66, 22);
@@ -824,24 +630,288 @@
             this.label23.Location = new System.Drawing.Point(499, 398);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(57, 16);
+            this.label23.Size = new System.Drawing.Size(69, 16);
             this.label23.TabIndex = 81;
-            this.label23.Text = "Evasion";
+            this.label23.Text = "Evasion%";
             // 
             // TextBox_Evasion
             // 
-            this.TextBox_Evasion.Location = new System.Drawing.Point(555, 395);
-            this.TextBox_Evasion.Mask = "099%";
+            this.TextBox_Evasion.Location = new System.Drawing.Point(575, 395);
+            this.TextBox_Evasion.Mask = "099";
             this.TextBox_Evasion.Name = "TextBox_Evasion";
             this.TextBox_Evasion.Size = new System.Drawing.Size(66, 22);
             this.TextBox_Evasion.TabIndex = 82;
             this.TextBox_Evasion.Text = "0";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(215, 162);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(55, 16);
+            this.label24.TabIndex = 83;
+            this.label24.Text = "Ailment:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(348, 162);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(60, 16);
+            this.label25.TabIndex = 84;
+            this.label25.Text = "Element:";
+            // 
+            // Label_AilmentType
+            // 
+            this.Label_AilmentType.AutoSize = true;
+            this.Label_AilmentType.Location = new System.Drawing.Point(269, 162);
+            this.Label_AilmentType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_AilmentType.Name = "Label_AilmentType";
+            this.Label_AilmentType.Size = new System.Drawing.Size(41, 16);
+            this.Label_AilmentType.TabIndex = 85;
+            this.Label_AilmentType.Text = "None";
+            // 
+            // Label_ElementType
+            // 
+            this.Label_ElementType.AutoSize = true;
+            this.Label_ElementType.Location = new System.Drawing.Point(416, 162);
+            this.Label_ElementType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_ElementType.Name = "Label_ElementType";
+            this.Label_ElementType.Size = new System.Drawing.Size(41, 16);
+            this.Label_ElementType.TabIndex = 86;
+            this.Label_ElementType.Text = "None";
+            // 
+            // TextBox_FireAtkValue
+            // 
+            this.TextBox_FireAtkValue.Location = new System.Drawing.Point(144, 536);
+            this.TextBox_FireAtkValue.Mask = "099";
+            this.TextBox_FireAtkValue.Name = "TextBox_FireAtkValue";
+            this.TextBox_FireAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_FireAtkValue.TabIndex = 87;
+            this.TextBox_FireAtkValue.Text = "0";
+            // 
+            // TextBox_WaterAtkValue
+            // 
+            this.TextBox_WaterAtkValue.Location = new System.Drawing.Point(265, 535);
+            this.TextBox_WaterAtkValue.Mask = "099";
+            this.TextBox_WaterAtkValue.Name = "TextBox_WaterAtkValue";
+            this.TextBox_WaterAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_WaterAtkValue.TabIndex = 88;
+            this.TextBox_WaterAtkValue.Text = "0";
+            // 
+            // TextBox_WindAtkValue
+            // 
+            this.TextBox_WindAtkValue.Location = new System.Drawing.Point(376, 536);
+            this.TextBox_WindAtkValue.Mask = "099";
+            this.TextBox_WindAtkValue.Name = "TextBox_WindAtkValue";
+            this.TextBox_WindAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_WindAtkValue.TabIndex = 89;
+            this.TextBox_WindAtkValue.Text = "0";
+            // 
+            // TextBox_EarthAtkValue
+            // 
+            this.TextBox_EarthAtkValue.Location = new System.Drawing.Point(144, 591);
+            this.TextBox_EarthAtkValue.Mask = "099";
+            this.TextBox_EarthAtkValue.Name = "TextBox_EarthAtkValue";
+            this.TextBox_EarthAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_EarthAtkValue.TabIndex = 90;
+            this.TextBox_EarthAtkValue.Text = "0";
+            // 
+            // TextBox_LightAtkValue
+            // 
+            this.TextBox_LightAtkValue.Location = new System.Drawing.Point(265, 594);
+            this.TextBox_LightAtkValue.Mask = "099";
+            this.TextBox_LightAtkValue.Name = "TextBox_LightAtkValue";
+            this.TextBox_LightAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_LightAtkValue.TabIndex = 91;
+            this.TextBox_LightAtkValue.Text = "0";
+            // 
+            // TextBox_DarkAtkValue
+            // 
+            this.TextBox_DarkAtkValue.Location = new System.Drawing.Point(376, 594);
+            this.TextBox_DarkAtkValue.Mask = "099";
+            this.TextBox_DarkAtkValue.Name = "TextBox_DarkAtkValue";
+            this.TextBox_DarkAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_DarkAtkValue.TabIndex = 92;
+            this.TextBox_DarkAtkValue.Text = "0";
+            // 
+            // TextBox_PoisonAtkValue
+            // 
+            this.TextBox_PoisonAtkValue.Location = new System.Drawing.Point(143, 656);
+            this.TextBox_PoisonAtkValue.Mask = "099";
+            this.TextBox_PoisonAtkValue.Name = "TextBox_PoisonAtkValue";
+            this.TextBox_PoisonAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_PoisonAtkValue.TabIndex = 93;
+            this.TextBox_PoisonAtkValue.Text = "0";
+            // 
+            // TextBox_StunAtkValue
+            // 
+            this.TextBox_StunAtkValue.Location = new System.Drawing.Point(264, 655);
+            this.TextBox_StunAtkValue.Mask = "099";
+            this.TextBox_StunAtkValue.Name = "TextBox_StunAtkValue";
+            this.TextBox_StunAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_StunAtkValue.TabIndex = 94;
+            this.TextBox_StunAtkValue.Text = "0";
+            // 
+            // TextBox_FreezeAtkValue
+            // 
+            this.TextBox_FreezeAtkValue.Location = new System.Drawing.Point(376, 655);
+            this.TextBox_FreezeAtkValue.Mask = "099";
+            this.TextBox_FreezeAtkValue.Name = "TextBox_FreezeAtkValue";
+            this.TextBox_FreezeAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_FreezeAtkValue.TabIndex = 95;
+            this.TextBox_FreezeAtkValue.Text = "0";
+            // 
+            // TextBox_DeathAtkValue
+            // 
+            this.TextBox_DeathAtkValue.Location = new System.Drawing.Point(143, 711);
+            this.TextBox_DeathAtkValue.Mask = "099";
+            this.TextBox_DeathAtkValue.Name = "TextBox_DeathAtkValue";
+            this.TextBox_DeathAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_DeathAtkValue.TabIndex = 96;
+            this.TextBox_DeathAtkValue.Text = "0";
+            // 
+            // TextBox_SleepAtkValue
+            // 
+            this.TextBox_SleepAtkValue.Location = new System.Drawing.Point(264, 711);
+            this.TextBox_SleepAtkValue.Mask = "099";
+            this.TextBox_SleepAtkValue.Name = "TextBox_SleepAtkValue";
+            this.TextBox_SleepAtkValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_SleepAtkValue.TabIndex = 97;
+            this.TextBox_SleepAtkValue.Text = "0";
+            // 
+            // TextBox_FireDefValue
+            // 
+            this.TextBox_FireDefValue.Location = new System.Drawing.Point(586, 536);
+            this.TextBox_FireDefValue.Mask = "099";
+            this.TextBox_FireDefValue.Name = "TextBox_FireDefValue";
+            this.TextBox_FireDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_FireDefValue.TabIndex = 98;
+            this.TextBox_FireDefValue.Text = "0";
+            // 
+            // TextBox_WaterDefValue
+            // 
+            this.TextBox_WaterDefValue.Location = new System.Drawing.Point(708, 535);
+            this.TextBox_WaterDefValue.Mask = "099";
+            this.TextBox_WaterDefValue.Name = "TextBox_WaterDefValue";
+            this.TextBox_WaterDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_WaterDefValue.TabIndex = 99;
+            this.TextBox_WaterDefValue.Text = "0";
+            // 
+            // TextBox_WindDefValue
+            // 
+            this.TextBox_WindDefValue.Location = new System.Drawing.Point(818, 536);
+            this.TextBox_WindDefValue.Mask = "099";
+            this.TextBox_WindDefValue.Name = "TextBox_WindDefValue";
+            this.TextBox_WindDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_WindDefValue.TabIndex = 100;
+            this.TextBox_WindDefValue.Text = "0";
+            // 
+            // TextBox_EarthDefValue
+            // 
+            this.TextBox_EarthDefValue.Location = new System.Drawing.Point(586, 591);
+            this.TextBox_EarthDefValue.Mask = "099";
+            this.TextBox_EarthDefValue.Name = "TextBox_EarthDefValue";
+            this.TextBox_EarthDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_EarthDefValue.TabIndex = 101;
+            this.TextBox_EarthDefValue.Text = "0";
+            // 
+            // TextBox_LightDefValue
+            // 
+            this.TextBox_LightDefValue.Location = new System.Drawing.Point(708, 591);
+            this.TextBox_LightDefValue.Mask = "099";
+            this.TextBox_LightDefValue.Name = "TextBox_LightDefValue";
+            this.TextBox_LightDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_LightDefValue.TabIndex = 102;
+            this.TextBox_LightDefValue.Text = "0";
+            // 
+            // TextBox_DarkDefValue
+            // 
+            this.TextBox_DarkDefValue.Location = new System.Drawing.Point(818, 591);
+            this.TextBox_DarkDefValue.Mask = "099";
+            this.TextBox_DarkDefValue.Name = "TextBox_DarkDefValue";
+            this.TextBox_DarkDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_DarkDefValue.TabIndex = 103;
+            this.TextBox_DarkDefValue.Text = "0";
+            // 
+            // TextBox_PoisonDefValue
+            // 
+            this.TextBox_PoisonDefValue.Location = new System.Drawing.Point(587, 652);
+            this.TextBox_PoisonDefValue.Mask = "099";
+            this.TextBox_PoisonDefValue.Name = "TextBox_PoisonDefValue";
+            this.TextBox_PoisonDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_PoisonDefValue.TabIndex = 104;
+            this.TextBox_PoisonDefValue.Text = "0";
+            // 
+            // TextBox_StunDefValue
+            // 
+            this.TextBox_StunDefValue.Location = new System.Drawing.Point(707, 652);
+            this.TextBox_StunDefValue.Mask = "099";
+            this.TextBox_StunDefValue.Name = "TextBox_StunDefValue";
+            this.TextBox_StunDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_StunDefValue.TabIndex = 105;
+            this.TextBox_StunDefValue.Text = "0";
+            // 
+            // TextBox_FreezeDefValue
+            // 
+            this.TextBox_FreezeDefValue.Location = new System.Drawing.Point(823, 652);
+            this.TextBox_FreezeDefValue.Mask = "099";
+            this.TextBox_FreezeDefValue.Name = "TextBox_FreezeDefValue";
+            this.TextBox_FreezeDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_FreezeDefValue.TabIndex = 106;
+            this.TextBox_FreezeDefValue.Text = "0";
+            // 
+            // TextBox_DeathDefValue
+            // 
+            this.TextBox_DeathDefValue.Location = new System.Drawing.Point(583, 708);
+            this.TextBox_DeathDefValue.Mask = "099";
+            this.TextBox_DeathDefValue.Name = "TextBox_DeathDefValue";
+            this.TextBox_DeathDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_DeathDefValue.TabIndex = 107;
+            this.TextBox_DeathDefValue.Text = "0";
+            // 
+            // TextBox_SleepDefValue
+            // 
+            this.TextBox_SleepDefValue.Location = new System.Drawing.Point(707, 708);
+            this.TextBox_SleepDefValue.Mask = "099";
+            this.TextBox_SleepDefValue.Name = "TextBox_SleepDefValue";
+            this.TextBox_SleepDefValue.Size = new System.Drawing.Size(58, 22);
+            this.TextBox_SleepDefValue.TabIndex = 108;
+            this.TextBox_SleepDefValue.Text = "0";
             // 
             // ItemDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 842);
+            this.Controls.Add(this.TextBox_SleepDefValue);
+            this.Controls.Add(this.TextBox_DeathDefValue);
+            this.Controls.Add(this.TextBox_FreezeDefValue);
+            this.Controls.Add(this.TextBox_StunDefValue);
+            this.Controls.Add(this.TextBox_PoisonDefValue);
+            this.Controls.Add(this.TextBox_DarkDefValue);
+            this.Controls.Add(this.TextBox_LightDefValue);
+            this.Controls.Add(this.TextBox_EarthDefValue);
+            this.Controls.Add(this.TextBox_WindDefValue);
+            this.Controls.Add(this.TextBox_WaterDefValue);
+            this.Controls.Add(this.TextBox_FireDefValue);
+            this.Controls.Add(this.TextBox_SleepAtkValue);
+            this.Controls.Add(this.TextBox_DeathAtkValue);
+            this.Controls.Add(this.TextBox_FreezeAtkValue);
+            this.Controls.Add(this.TextBox_StunAtkValue);
+            this.Controls.Add(this.TextBox_PoisonAtkValue);
+            this.Controls.Add(this.TextBox_DarkAtkValue);
+            this.Controls.Add(this.TextBox_LightAtkValue);
+            this.Controls.Add(this.TextBox_EarthAtkValue);
+            this.Controls.Add(this.TextBox_WindAtkValue);
+            this.Controls.Add(this.TextBox_WaterAtkValue);
+            this.Controls.Add(this.TextBox_FireAtkValue);
+            this.Controls.Add(this.Label_ElementType);
+            this.Controls.Add(this.Label_AilmentType);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.TextBox_Evasion);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.TextBox_MagicPower);
@@ -851,56 +921,34 @@
             this.Controls.Add(this.TextBox_AttackPower);
             this.Controls.Add(this.TextBox_MagicPoints);
             this.Controls.Add(this.TextBox_HealthPoints);
-            this.Controls.Add(this.TextBox_SleepDefValue);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.TextBox_DeathDefValue);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.TextBox_FreezeDefValue);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.TextBox_StunDefValue);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.TextBox_PoisonDefValue);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.Label_ItemLevel);
-            this.Controls.Add(this.TextBox_SleepAtkValue);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.TextBox_DeathAtkValue);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.TextBox_FreezeAtkValue);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.TextBox_StunAtkValue);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.TextBox_PoisonAtkValue);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.TextBox_DarkDefValue);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.TextBox_LightDefValue);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.TextBox_EarthDefValue);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.TextBox_WindDefValue);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.TextBox_WaterDefValue);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.TextBox_FireDefValue);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.TextBox_DarkAtkValue);
             this.Controls.Add(this.Label_Dark);
-            this.Controls.Add(this.TextBox_LightAtkValue);
             this.Controls.Add(this.Label_Light);
-            this.Controls.Add(this.TextBox_EarthAtkValue);
             this.Controls.Add(this.Label_Earth);
-            this.Controls.Add(this.TextBox_WindAtkValue);
             this.Controls.Add(this.Label_Wind);
-            this.Controls.Add(this.TextBox_WaterAtkValue);
             this.Controls.Add(this.Label_Water);
-            this.Controls.Add(this.TextBox_FireAtkValue);
             this.Controls.Add(this.Label_Fire);
             this.Controls.Add(this.Label_Ailment);
             this.Controls.Add(this.Label_Element);
@@ -947,54 +995,32 @@
         private System.Windows.Forms.Label Label_Element;
         private System.Windows.Forms.Label Label_Ailment;
         private System.Windows.Forms.Label Label_Fire;
-        private System.Windows.Forms.TextBox TextBox_FireAtkValue;
         private System.Windows.Forms.Label Label_Water;
-        private System.Windows.Forms.TextBox TextBox_WaterAtkValue;
         private System.Windows.Forms.Label Label_Wind;
-        private System.Windows.Forms.TextBox TextBox_WindAtkValue;
         private System.Windows.Forms.Label Label_Earth;
-        private System.Windows.Forms.TextBox TextBox_EarthAtkValue;
         private System.Windows.Forms.Label Label_Light;
-        private System.Windows.Forms.TextBox TextBox_LightAtkValue;
         private System.Windows.Forms.Label Label_Dark;
-        private System.Windows.Forms.TextBox TextBox_DarkAtkValue;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TextBox_DarkDefValue;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TextBox_LightDefValue;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TextBox_EarthDefValue;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TextBox_WindDefValue;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TextBox_WaterDefValue;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox TextBox_FireDefValue;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox TextBox_SleepAtkValue;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox TextBox_DeathAtkValue;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox TextBox_FreezeAtkValue;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox TextBox_StunAtkValue;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox TextBox_PoisonAtkValue;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label Label_ItemLevel;
-        private System.Windows.Forms.TextBox TextBox_SleepDefValue;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox TextBox_DeathDefValue;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox TextBox_FreezeDefValue;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox TextBox_StunDefValue;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox TextBox_PoisonDefValue;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.MaskedTextBox TextBox_HealthPoints;
@@ -1006,5 +1032,31 @@
         private System.Windows.Forms.MaskedTextBox TextBox_MagicPower;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.MaskedTextBox TextBox_Evasion;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label Label_AilmentType;
+        private System.Windows.Forms.Label Label_ElementType;
+        private System.Windows.Forms.MaskedTextBox TextBox_FireAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_WaterAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_WindAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_EarthAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_LightAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_DarkAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_PoisonAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_StunAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_FreezeAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_DeathAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_SleepAtkValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_FireDefValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_WaterDefValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_WindDefValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_EarthDefValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_LightDefValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_DarkDefValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_PoisonDefValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_StunDefValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_FreezeDefValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_DeathDefValue;
+        private System.Windows.Forms.MaskedTextBox TextBox_SleepDefValue;
     }
 }
