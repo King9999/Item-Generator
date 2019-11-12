@@ -564,8 +564,8 @@
             // 
             // TextBox_HealthPoints
             // 
-            this.TextBox_HealthPoints.Location = new System.Drawing.Point(290, 276);
-            this.TextBox_HealthPoints.Mask = "0099";
+            this.TextBox_HealthPoints.Location = new System.Drawing.Point(296, 276);
+            this.TextBox_HealthPoints.Mask = "009";
             this.TextBox_HealthPoints.Name = "TextBox_HealthPoints";
             this.TextBox_HealthPoints.Size = new System.Drawing.Size(66, 22);
             this.TextBox_HealthPoints.TabIndex = 74;
@@ -574,8 +574,8 @@
             // 
             // TextBox_MagicPoints
             // 
-            this.TextBox_MagicPoints.Location = new System.Drawing.Point(502, 276);
-            this.TextBox_MagicPoints.Mask = "0099";
+            this.TextBox_MagicPoints.Location = new System.Drawing.Point(511, 276);
+            this.TextBox_MagicPoints.Mask = "009";
             this.TextBox_MagicPoints.Name = "TextBox_MagicPoints";
             this.TextBox_MagicPoints.Size = new System.Drawing.Size(66, 22);
             this.TextBox_MagicPoints.TabIndex = 75;

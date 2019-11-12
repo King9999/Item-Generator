@@ -27,6 +27,7 @@ namespace Item_Generator
         protected const short MAGICBONUS_MAX = 1000;
         protected const short SPEEDBONUS_MAX = 1000;
 
+
         protected string ItemType;                  //type of item, e.g. weapon, armor, etc.
         protected string ItemSubtype;               //eg. sword, shield, ring, etc.
 

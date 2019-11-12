@@ -25,6 +25,7 @@ namespace Item_Generator
 
         Weapon weapon;
         Armor armor;
+        Accessory accessory;
 
         public ItemGenerator()
         {
@@ -65,9 +66,10 @@ namespace Item_Generator
                         maker.GenerateItem(armor, level);
                         break;
 
-                    /*case ACCESSORY:
-                        GenerateAccessory(item);
-                        break;*/
+                    case ACCESSORY:
+                        accessory = GenerateAccessory(accessory);
+                        maker.GenerateItem(accessory, level);
+                        break;
 
                     default:
                         break;
@@ -211,6 +213,36 @@ namespace Item_Generator
 
                 case ROBE:
                     item = new Robe();
+                    break;
+
+
+                default:
+                    break;
+            }
+
+            return item;
+
+        }
+
+        private Accessory GenerateAccessory(Accessory item)
+        {
+            int selectedItem = ComboBox_ItemSubType.SelectedIndex;
+            const int RING = 0;
+            const int NECKLACE = 1;
+            const int BOOTS = 2;
+
+            switch (selectedItem)
+            {
+                case RING:
+                    item = new Ring();
+                    break;
+
+                case NECKLACE:
+                    item = new Necklace();
+                    break;
+
+                case BOOTS:
+                    item = new Boots();
                     break;
 
 

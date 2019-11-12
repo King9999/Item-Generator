@@ -23,6 +23,13 @@ namespace Item_Generator
         protected List<Dictionary<string, byte>> accAilmentNames = new List<Dictionary<string, byte>>();
         protected List<Dictionary<string, byte>> accBonusNames = new List<Dictionary<string, byte>>();  //used to hold health, magic, and speed bonuses. These are prefixes.
 
+        protected const short MAX_DEFENSE = 999;
+        protected const float MAX_EVADE = 1f;   
+        protected const short MAX_MAGICRES = 999;
+        protected const short MAX_ATTACK = 999;
+        protected const float MAX_ACCURACY = 1f;   
+        protected const short MAX_MAGICATK = 999;
+
         public enum AccAilment : byte        //must be public so that getters/setters will work
         {
             None,
@@ -52,8 +59,8 @@ namespace Item_Generator
             Speed
         }
 
-        protected AccElement ArmActiveElement;
-        protected AccAilment ArmActiveAilment;
+        protected AccElement AccActiveElement;
+        protected AccAilment AccActiveAilment;
         protected AccBonus AccActiveBonus;
 
 
@@ -73,6 +80,7 @@ namespace Item_Generator
             ItemHealthPointBonus = 0;
             ItemMagicPointBonus = 0;
             ItemSpeedBonus = 0;
+            ItemType = "Accessory";
 
             /* Set up names. Prefixes for accessories are bonuses, followed by ailments, and then elements (suffixes). The value is the  
             * max percentage the weapon can have in a given tier. */
@@ -85,7 +93,45 @@ namespace Item_Generator
             for (int i = 0; i < Enum.GetNames(typeof(AccBonus)).Length; i++)
                 accBonusNames.Add(new Dictionary<string, byte>());
 
-            /****Ailments. These are prefixes, which means armor names can begin with these names. *****/
+            /******Bonuses. These are the first prefix. *****/
+
+            //health tiers. each value is a fixed amount that's added to a stat
+            accBonusNames[(int)AccBonus.Health].Add("Stable", 20);
+            accBonusNames[(int)AccBonus.Health].Add("Durable", 40);
+            accBonusNames[(int)AccBonus.Health].Add("Enduring", 60);
+            accBonusNames[(int)AccBonus.Health].Add("Tenacious", 80);
+            accBonusNames[(int)AccBonus.Health].Add("Reliable", 100);
+            accBonusNames[(int)AccBonus.Health].Add("Tough", 120);
+            accBonusNames[(int)AccBonus.Health].Add("Reinforced", 140);
+            accBonusNames[(int)AccBonus.Health].Add("Heavy", 160);
+            accBonusNames[(int)AccBonus.Health].Add("Armored", 180);
+            accBonusNames[(int)AccBonus.Health].Add("Impregnable", 200);
+
+            //magic point tiers
+            accBonusNames[(int)AccBonus.Magic].Add("Bright", 20);
+            accBonusNames[(int)AccBonus.Magic].Add("Acute", 40);
+            accBonusNames[(int)AccBonus.Magic].Add("Perceptive", 60);
+            accBonusNames[(int)AccBonus.Magic].Add("Wise", 80);
+            accBonusNames[(int)AccBonus.Magic].Add("Sage", 100);
+            accBonusNames[(int)AccBonus.Magic].Add("Keen", 120);
+            accBonusNames[(int)AccBonus.Magic].Add("Rational", 140);
+            accBonusNames[(int)AccBonus.Magic].Add("Brilliant", 160);
+            accBonusNames[(int)AccBonus.Magic].Add("Profound", 180);
+            accBonusNames[(int)AccBonus.Magic].Add("Enlightened", 200);
+
+            //speed tiers
+            accBonusNames[(int)AccBonus.Speed].Add("Quick", 5);
+            accBonusNames[(int)AccBonus.Speed].Add("Hasty", 10);
+            accBonusNames[(int)AccBonus.Speed].Add("Swift", 15);
+            accBonusNames[(int)AccBonus.Speed].Add("Agile", 20);
+            accBonusNames[(int)AccBonus.Speed].Add("Nimble", 25);
+            accBonusNames[(int)AccBonus.Speed].Add("Rapid", 30);
+            accBonusNames[(int)AccBonus.Speed].Add("Brisk", 35);
+            accBonusNames[(int)AccBonus.Speed].Add("Energetic", 40);
+            accBonusNames[(int)AccBonus.Speed].Add("Expeditious", 45);
+            accBonusNames[(int)AccBonus.Speed].Add("Spirited", 50);
+
+            /****Ailments *****/
 
             //Poison tiers
             accAilmentNames[(int)AccAilment.Poison].Add("Asp's", 10);
@@ -150,7 +196,7 @@ namespace Item_Generator
             accAilmentNames[(int)AccAilment.Sleep].Add("Mare's", 90);
             accAilmentNames[(int)AccAilment.Sleep].Add("Succubus's", 100);
 
-            /*****Elements. These are suffixes, which means they are added at the end of weapon names****/
+            /*****Elements. These are suffixes, which means they are added at the end of accessory names****/
 
             //Fire tiers
             accElementNames[(int)AccElement.Fire].Add("of the Salamander", 10);
@@ -224,5 +270,192 @@ namespace Item_Generator
             accElementNames[(int)AccElement.Dark].Add("of Twilight", 90);
             accElementNames[(int)AccElement.Dark].Add("of the End", 100);
         }
+
+        #region Getters/Setters
+
+        public short GetAttackPower()
+        {
+            return AccAtk;
+        }
+
+        public void SetAttackPower(short atk)
+        {
+            AccAtk = atk;
+            if (AccAtk < 1)
+                AccAtk = 1;
+            if (AccAtk > MAX_ATTACK)
+                AccAtk = MAX_ATTACK;
+        }
+
+        public short GetMagicPower()
+        {
+            return AccMag;
+        }
+
+        public void SetMagicPower(short mag)
+        {
+            AccMag = mag;
+            if (AccMag < 0)
+                AccMag = 0;
+            if (AccMag > MAX_MAGICATK)
+                AccMag = MAX_MAGICATK;
+        }
+
+        public float GetAccuracy()
+        {
+            return AccAcc;
+        }
+
+        public void SetAccuracy(float acc)
+        {
+            AccAcc = acc;
+            if (AccAcc > MAX_ACCURACY)
+                AccAcc = MAX_ACCURACY;
+        }
+
+        public short GetDefensePower()
+        {
+            return AccDef;
+        }
+
+        public void SetDefensePower(short def)
+        {
+            AccDef = def;
+            if (AccDef < 1)
+                AccDef = 1;
+            if (AccDef > MAX_DEFENSE)
+                AccDef = MAX_DEFENSE;
+        }
+
+        public short GetMagicResist()
+        {
+            return AccRes;
+        }
+
+        public void SetMagicResist(short res)
+        {
+            AccRes = res;
+            if (AccRes < 0)
+                AccRes = 0;
+            if (AccRes > MAX_MAGICRES)
+                AccRes = MAX_MAGICRES;
+        }
+
+        public float GetEvade()
+        {
+            return AccEvade;
+        }
+
+        public void SetEvade(float evd)
+        {
+            AccEvade = evd;
+            if (AccEvade > MAX_EVADE)
+                AccEvade = MAX_EVADE;
+        }
+
+        public AccElement GetElement()
+        {
+            return AccActiveElement;
+        }
+
+        public void SetElement(AccElement element, byte value)
+        {
+            AccActiveElement = element;
+            AccElementDefValue = value;
+            if (AccElementDefValue > 100)
+                AccElementDefValue = 100;
+        }
+
+        public AccAilment GetAilment()
+        {
+            return AccActiveAilment;
+        }
+
+        public void SetAilment(AccAilment ailment, byte value)
+        {
+            AccActiveAilment = ailment;
+            AccAilmentDefValue = value;
+            if (AccAilmentDefValue > 100)
+                AccAilmentDefValue = 100;
+        }
+
+        public AccBonus GetBonus()
+        {
+            return AccActiveBonus;
+        }
+
+        /*public void SetBonus(AccBonus bonus, byte value)
+        {
+            AccActiveBonus = bonus;
+            AccBonusValue = value;
+            if (AccAilmentDefValue > 100)
+                AccAilmentDefValue = 100;
+
+        }*/
+
+        public byte GetElementDefValue()
+        {
+            return AccElementDefValue;
+        }
+
+
+
+        public byte GetAilmentDefValue()
+        {
+            return AccAilmentDefValue;
+        }
+
+        public int GetCount(List<Dictionary<string, byte>> list)
+        {
+            return list.Count;
+        }
+
+        public List<Dictionary<string, byte>> GetAccElementNames()
+        {
+            return accElementNames;
+        }
+
+        public List<Dictionary<string, byte>> GetAccAilmentNames()
+        {
+            return accAilmentNames;
+        }
+
+        public List<Dictionary<string, byte>> GetAccBonusNames()
+        {
+            return accBonusNames;
+        }
+
+        public short GetMaxDefensePower()
+        {
+            return MAX_DEFENSE;
+        }
+
+        public short GetMaxMagicResist()
+        {
+            return MAX_MAGICRES;
+        }
+
+        public float GetMaxEvade()
+        {
+            return MAX_EVADE;
+        }
+
+        public short GetMaxAttackPower()
+        {
+            return MAX_ATTACK;
+        }
+
+        public short GetMaxMagicPower()
+        {
+            return MAX_MAGICATK;
+        }
+
+        public float GetMaxAccuracy()
+        {
+            return MAX_ACCURACY;
+        }
+
+        #endregion
+
     }
 }

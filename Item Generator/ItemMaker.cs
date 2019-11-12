@@ -33,13 +33,13 @@ namespace Item_Generator
             string text = "";                    //this will be the ranomized name
 
             //set up attack power
-            int atk = randNum.Next(level * 5, level * 5 * weapon.GetAtkMod());
+            int atk = randNum.Next(level * 5, level * 5 * weapon.GetAtkMod() + 1);
             weapon.SetAttackPower((short)atk);
 
             //magic power
             if (weapon.GetItemSubtype().ToLower() == "staff")
             {
-                int mag = randNum.Next(level * 5, level * 5 * weapon.GetMagMod());
+                int mag = randNum.Next(level * 5, level * 5 * weapon.GetMagMod() + 1);
                 weapon.SetMagicPower((short)mag);
             }
 
@@ -251,13 +251,13 @@ namespace Item_Generator
             string text = "";                    //this will be the ranomized name
 
             //set up defense power
-            int def = randNum.Next(level * 5, level * 5 * armor.GetDefMod());   //note that the defense for a robe has no variance
+            int def = randNum.Next(level * 5, level * 5 * armor.GetDefMod() + 1);   //note that the defense for a robe has no variance
             armor.SetDefensePower((short)def);
 
             //magic resist
             if (armor.GetItemSubtype().ToLower() == "robe")
             {
-                int res = randNum.Next(level * 5, level * 5 * armor.GetResMod());
+                int res = randNum.Next(level * 5, level * 5 * armor.GetResMod() + 1);
                 armor.SetMagicResist((short)res);
             }
 
@@ -446,6 +446,305 @@ namespace Item_Generator
 
                     case Armor.ArmAilment.Sleep:
                         itemDisplay.SleepDefValue = armor.GetAilmentDefValue().ToString();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            //all done! Show the generated item.
+            itemDisplay.Show();
+        }
+
+        public void GenerateItem(Accessory accessory, byte level)
+        {
+            //Accessories can come with any stat, with different accessories having affinity towards certain stats. But generally, they will have
+            //stat boosts for health, magic, and speed.
+
+            accessory.SetItemLevel(level);
+
+            string text = "";                    //this will be the ranomized name
+
+            //generate name, starting with prefix if applicable, then the accessory type, and then the suffix.
+            int total = accessory.GetAccBonusNames().ElementAt(1).Keys.Count;
+            total = total * (level / accessory.GetMaxLevel());     //This will control the strength of generated items. Higher level = better gear
+
+            switch(accessory.GetItemSubtype().ToLower())
+            {
+                case "ring":
+                    {
+                        int nameIndex = randNum.Next(0, total);
+                        int val = (int)Accessory.AccBonus.Health;
+                        text = accessory.GetAccBonusNames().ElementAt(val).Keys.ElementAt(nameIndex) + " ";
+
+                        //set the strength of the effect. We get a random number between the lowest value and highest value of the current tier.
+                        byte bonusValue = accessory.GetAccAilmentNames().ElementAt(val).Values.ElementAt(nameIndex);
+                        int randVal = randNum.Next(bonusValue - 5, bonusValue) + 1;
+
+                        //set the wepaon's ailment by casting val1 as enum
+                        accessory.SetHealthPointBonus((short)randVal);
+                    }
+                    break;
+
+                case "necklace":
+                    {
+                        int nameIndex = randNum.Next(0, total);
+                        int val = (int)Accessory.AccBonus.Magic;
+                        text = accessory.GetAccBonusNames().ElementAt(val).Keys.ElementAt(nameIndex) + " ";
+                        byte bonusValue = accessory.GetAccAilmentNames().ElementAt(val).Values.ElementAt(nameIndex);
+                        int randVal = randNum.Next(bonusValue - 5, bonusValue) + 1;
+
+                        //set the wepaon's ailment by casting val1 as enum
+                        accessory.SetMagicPointBonus((short)randVal);
+                    }
+                    break;
+
+                case "boots":
+                    {
+                        int nameIndex = randNum.Next(0, total);
+                        int val = (int)Accessory.AccBonus.Speed;
+                        text = accessory.GetAccBonusNames().ElementAt(val).Keys.ElementAt(nameIndex) + " ";
+                        byte bonusValue = accessory.GetAccAilmentNames().ElementAt(val).Values.ElementAt(nameIndex);
+                        int randVal = randNum.Next(bonusValue - 5, bonusValue) + 1;
+
+                        //set the wepaon's ailment by casting val1 as enum
+                        accessory.SetSpeedBonus((short)randVal);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+
+            //start checking if other stats get boosted. Begin with defense
+            double randomRate = randNum.NextDouble();
+            double defenseRate = ((randomRate * level) / level) * 0.25;
+
+            //roll
+            randomRate = randNum.NextDouble();
+
+            if (randomRate <= defenseRate)
+            {
+                //set up defense power
+                int def = randNum.Next((level / 4) * 2, ((level / 4) * 5) + 1);
+                accessory.SetDefensePower((short)def);
+            }
+
+            //roll for attack next
+            randomRate = randNum.NextDouble();
+            double attackRate = ((randomRate * level) / level) * 0.25;
+            randomRate = randNum.NextDouble();
+
+            if (randomRate <= attackRate)
+            {
+                int atk = randNum.Next((level / 4) * 2, ((level / 4) * 5) + 1);
+                accessory.SetAttackPower((short)atk);
+            }
+
+
+            //int total = accessory.GetAccAilmentNames().ElementAt(1).Keys.Count;
+            //total = total * (level / accessory.GetMaxLevel());     //This will control the strength of generated items. Higher level = better gear
+            int elementCount = accessory.GetCount(accessory.GetAccElementNames());
+            int ailmentCount = accessory.GetCount(accessory.GetAccAilmentNames());
+
+            
+
+            
+
+            //magic resist
+            if (accessory.GetItemSubtype().ToLower() == "robe")
+            {
+                int res = randNum.Next(level * 5, level * 5 * accessory.GetResMod());
+                accessory.SetMagicResist((short)res);
+            }
+
+            //Evasion will have some variance, either -10 or +10 of the base
+            double evadeRate = randNum.NextDouble() * ((accessory.GetEvade() + 0.1) - (accessory.GetEvade() - 0.1)) + (accessory.GetEvade() - 0.1);
+            evadeRate = Math.Round(evadeRate, 2);
+            accessory.SetEvade((float)evadeRate);
+
+
+            //Accessories have a lower chance to get ailments or elements than other items.
+            double randomRate = randNum.NextDouble();
+            double ailmentRate = ((randomRate * level) / level) * 0.25;
+            randomRate = randNum.NextDouble();
+            double elementRate = ((randomRate * level) / level) * 0.25;
+
+            Console.WriteLine("Chance to add Ailment Res: " + ailmentRate * 100 + "%");
+            Console.WriteLine("Chance to add Element Res: " + elementRate * 100 + "%");
+
+            //roll for ailments first
+            randomRate = randNum.NextDouble();
+            Console.WriteLine("Random Rate for Ailments: " + randomRate * 100 + "%");
+
+            if (randomRate <= ailmentRate)
+            {
+                //accessory has an ailment so we apply it
+                int val1 = randNum.Next(1, ailmentCount);   //we never reference index 0 because there's nothing there
+                int val2 = randNum.Next(0, total);
+                text = accessory.GetAccAilmentNames().ElementAt(val1).Keys.ElementAt(val2) + " ";   //prefix
+
+                //set the strength of the effect. We get a random number between the lowest value and highest value of the current tier.
+                byte ailmentValue = accessory.GetAccAilmentNames().ElementAt(val1).Values.ElementAt(val2);
+                int ailmentDef = randNum.Next(ailmentValue - 10, ailmentValue) + 1;
+
+                //set the wepaon's ailment by casting val1 as enum
+                accessory.SetAilment((Accessory.AccAilment)val1, (byte)ailmentDef);
+
+                //Console.WriteLine("New Ailment is " + Enum.GetName(typeof(Accessory.AccAilment), accessory.GetAilment()));
+            }
+
+            text += accessory.GetItemSubtype();
+
+            //roll for elements
+            randomRate = randNum.NextDouble();
+            Console.WriteLine("Random Rate for Element: " + randomRate * 100 + "%");
+
+            if (randomRate <= elementRate * accessory.GetResMod()) //robe has a better chance of having an element
+            {
+                int val1 = randNum.Next(1, elementCount);       //we never reference index 0 because there's nothing there
+                int val2 = randNum.Next(0, total);
+                text += " " + accessory.GetAccElementNames().ElementAt(val1).Keys.ElementAt(val2);  //suffix
+
+                //set the strength of the effect. We get a random number between the lowest value and highest value of the current tier.
+                byte elementValue = accessory.GetAccElementNames().ElementAt(val1).Values.ElementAt(val2);
+                int elementDef = randNum.Next(elementValue - 10, elementValue) + 1;
+
+                //set the wepaon's ailment by casting val1 as enum
+                accessory.SetElement((Accessory.AccElement)val1, (byte)elementDef);
+            }
+
+            //Check for any ranks. Ranks boost accessory defense power (or resist if accessory is a robe).
+            randomRate = randNum.NextDouble();
+            Console.WriteLine("Random Rate for Rank: " + randomRate * 100 + "%");
+            double rankRate3 = 0.02;
+            double rankRate2 = 0.1;
+            double rankRate1 = 0.25;
+
+            if (randomRate <= rankRate3)
+            {
+                text += "+++";
+                accessory.SetItemType("Enhanced Acc");
+                accessory.SetRank(3);
+
+                if (accessory.GetItemSubtype().ToLower() == "robe")
+                {
+                    double boost = Math.Round(1.4f * accessory.GetMagicResist());
+                    accessory.SetMagicResist((short)boost);
+                }
+                else
+                {
+                    double boost = Math.Round(1.4f * accessory.GetDefensePower());
+                    accessory.SetDefensePower((short)boost);
+                }
+            }
+            else if (randomRate <= rankRate2)
+            {
+                text += "++";
+                accessory.SetItemType("Enhanced Acc");
+                accessory.SetRank(2);
+
+                if (accessory.GetItemSubtype().ToLower() == "robe")
+                {
+                    double boost = Math.Round(1.25f * accessory.GetMagicResist());
+                    accessory.SetMagicResist((short)boost);
+                }
+                else
+                {
+                    double boost = Math.Round(1.25f * accessory.GetDefensePower());
+                    accessory.SetDefensePower((short)boost);
+                }
+            }
+            else if (randomRate <= rankRate1)
+            {
+                text += "+";
+                accessory.SetItemType("Enhanced Acc");
+                accessory.SetRank(1);
+
+                if (accessory.GetItemSubtype().ToLower() == "robe")
+                {
+                    double boost = Math.Round(1.15f * accessory.GetMagicResist());
+                    accessory.SetMagicResist((short)boost);
+                }
+                else
+                {
+                    double boost = Math.Round(1.15f * accessory.GetDefensePower());
+                    accessory.SetDefensePower((short)boost);
+                }
+            }
+
+            //Name is complete
+            accessory.SetItemName(text);
+
+            //set all values for the item display form
+            itemDisplay.ItemName = text;
+            itemDisplay.ItemLevel = "Level: " + level;
+            itemDisplay.ItemType = accessory.GetItemType();
+            itemDisplay.ItemSubType = accessory.GetItemSubtype();
+            itemDisplay.ItemAilment = Enum.GetName(typeof(Accessory.AccAilment), accessory.GetAilment());
+            itemDisplay.ItemElement = Enum.GetName(typeof(Accessory.AccElement), accessory.GetElement());
+            itemDisplay.Evasion = (accessory.GetEvade() * 100).ToString();
+            itemDisplay.DefensePower = accessory.GetDefensePower().ToString();
+            itemDisplay.MagicResist = accessory.GetMagicResist().ToString();
+
+            //need to check which elements/ailment values are set
+            if (accessory.GetElement() != Accessory.AccElement.None)
+            {
+                switch (accessory.GetElement())
+                {
+                    case Accessory.AccElement.Fire:
+                        itemDisplay.FireDefValue = accessory.GetElementDefValue().ToString();
+                        break;
+
+                    case Accessory.AccElement.Water:
+                        itemDisplay.WaterDefValue = accessory.GetElementDefValue().ToString();
+                        break;
+
+                    case Accessory.AccElement.Wind:
+                        itemDisplay.WindDefValue = accessory.GetElementDefValue().ToString();
+                        break;
+
+                    case Accessory.AccElement.Earth:
+                        itemDisplay.EarthDefValue = accessory.GetElementDefValue().ToString();
+                        break;
+
+                    case Accessory.AccElement.Light:
+                        itemDisplay.LightDefValue = accessory.GetElementDefValue().ToString();
+                        break;
+
+                    case Accessory.AccElement.Dark:
+                        itemDisplay.DarkDefValue = accessory.GetElementDefValue().ToString();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            if (accessory.GetAilment() != Accessory.AccAilment.None)
+            {
+                switch (accessory.GetAilment())
+                {
+                    case Accessory.AccAilment.Poison:
+                        itemDisplay.PoisonDefValue = accessory.GetAilmentDefValue().ToString();
+                        break;
+
+                    case Accessory.AccAilment.Stun:
+                        itemDisplay.StunDefValue = accessory.GetAilmentDefValue().ToString();
+                        break;
+
+                    case Accessory.AccAilment.Freeze:
+                        itemDisplay.FreezeDefValue = accessory.GetAilmentDefValue().ToString();
+                        break;
+
+                    case Accessory.AccAilment.Death:
+                        itemDisplay.DeathDefValue = accessory.GetAilmentDefValue().ToString();
+                        break;
+
+                    case Accessory.AccAilment.Sleep:
+                        itemDisplay.SleepDefValue = accessory.GetAilmentDefValue().ToString();
                         break;
 
                     default:
