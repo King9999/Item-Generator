@@ -22,10 +22,6 @@ namespace Item_Generator
 
         public void GenerateItem(Weapon weapon, byte level)
         {
-            //level cannot be less than 1
-            if (level < 1)
-                level = 1;
-
             weapon.SetItemLevel(level);
 
             //generate name, starting with prefix if applicable, then the weapon type, and then the suffix.
@@ -242,10 +238,232 @@ namespace Item_Generator
             
         }
 
-        /*public void GenerateItem(Armor item, byte level)
+        public void GenerateItem(Armor armor, byte level)
+        {
+            armor.SetItemLevel(level);
+
+            //generate name, starting with prefix if applicable, then the armor type, and then the suffix.
+            int total = armor.GetArmorAilmentNames().ElementAt(1).Keys.Count;
+            total = total * (level / armor.GetMaxLevel());     //This will control the strength of generated items. Higher level = better gear
+            int elementCount = armor.GetCount(armor.GetArmorElementNames());
+            int ailmentCount = armor.GetCount(armor.GetArmorAilmentNames());
+
+            string text = "";                    //this will be the ranomized name
+
+            //set up defense power
+            int def = randNum.Next(level * 5, level * 5 * armor.GetDefMod());   //note that the defense for a robe has no variance
+            armor.SetDefensePower((short)def);
+
+            //magic resist
+            if (armor.GetItemSubtype().ToLower() == "robe")
+            {
+                int res = randNum.Next(level * 5, level * 5 * armor.GetResMod());
+                armor.SetMagicResist((short)res);
+            }
+
+            //Evasion will have some variance, either -10 or +10 of the base
+            double evadeRate = randNum.NextDouble() * ((armor.GetEvade() + 0.1) - (armor.GetEvade() - 0.1)) + (armor.GetEvade() - 0.1);
+            evadeRate = Math.Round(evadeRate, 2);
+            armor.SetEvade((float)evadeRate);
+
+
+            //Each item has a success rate of having ailment or element resistance applied to them. The highest success rate is 50%.
+            double randomRate = randNum.NextDouble();
+            double ailmentRate = ((randomRate * level) / level) * 0.5;
+            randomRate = randNum.NextDouble();
+            double elementRate = ((randomRate * level) / level) * 0.5;
+
+            Console.WriteLine("Chance to add Ailment Res: " + ailmentRate * 100 + "%");
+            Console.WriteLine("Chance to add Element Res: " + elementRate * 100 + "%");
+
+            //roll for ailments first
+            randomRate = randNum.NextDouble();
+            Console.WriteLine("Random Rate for Ailments: " + randomRate * 100 + "%");
+
+            if (randomRate <= ailmentRate)
+            {
+                //armor has an ailment so we apply it
+                int val1 = randNum.Next(1, ailmentCount);   //we never reference index 0 because there's nothing there
+                int val2 = randNum.Next(0, total);
+                text = armor.GetArmorAilmentNames().ElementAt(val1).Keys.ElementAt(val2) + " ";   //prefix
+
+                //set the strength of the effect. We get a random number between the lowest value and highest value of the current tier.
+                byte ailmentValue = armor.GetArmorAilmentNames().ElementAt(val1).Values.ElementAt(val2);
+                int ailmentDef = randNum.Next(ailmentValue - 10, ailmentValue) + 1;
+
+                //set the wepaon's ailment by casting val1 as enum
+                armor.SetAilment((Armor.ArmAilment)val1, (byte)ailmentDef);
+
+                //Console.WriteLine("New Ailment is " + Enum.GetName(typeof(Armor.ArmAilment), armor.GetAilment()));
+            }
+
+            text += armor.GetItemSubtype();
+
+            //roll for elements
+            randomRate = randNum.NextDouble();
+            Console.WriteLine("Random Rate for Element: " + randomRate * 100 + "%");
+
+            if (randomRate <= elementRate * armor.GetResMod()) //robe has a better chance of having an element
+            {
+                int val1 = randNum.Next(1, elementCount);       //we never reference index 0 because there's nothing there
+                int val2 = randNum.Next(0, total);
+                text += " " + armor.GetArmorElementNames().ElementAt(val1).Keys.ElementAt(val2);  //suffix
+
+                //set the strength of the effect. We get a random number between the lowest value and highest value of the current tier.
+                byte elementValue = armor.GetArmorElementNames().ElementAt(val1).Values.ElementAt(val2);
+                int elementDef = randNum.Next(elementValue - 10, elementValue) + 1;
+
+                //set the wepaon's ailment by casting val1 as enum
+                armor.SetElement((Armor.ArmElement)val1, (byte)elementDef);
+            }
+
+            //Check for any ranks. Ranks boost armor defense power (or resist if armor is a robe).
+            randomRate = randNum.NextDouble();
+            Console.WriteLine("Random Rate for Rank: " + randomRate * 100 + "%");
+            double rankRate3 = 0.02;
+            double rankRate2 = 0.1;
+            double rankRate1 = 0.25;
+
+            if (randomRate <= rankRate3)
+            {
+                text += "+++";
+                armor.SetItemType("Enhanced Armor");
+                armor.SetRank(3);
+
+                if (armor.GetItemSubtype().ToLower() == "robe")
+                {
+                    double boost = Math.Round(1.4f * armor.GetMagicResist());
+                    armor.SetMagicResist((short)boost);
+                }
+                else
+                {
+                    double boost = Math.Round(1.4f * armor.GetDefensePower());
+                    armor.SetDefensePower((short)boost);
+                }
+            }
+            else if (randomRate <= rankRate2)
+            {
+                text += "++";
+                armor.SetItemType("Enhanced Armor");
+                armor.SetRank(2);
+
+                if (armor.GetItemSubtype().ToLower() == "robe")
+                {
+                    double boost = Math.Round(1.25f * armor.GetMagicResist());
+                    armor.SetMagicResist((short)boost);
+                }
+                else
+                {
+                    double boost = Math.Round(1.25f * armor.GetDefensePower());
+                    armor.SetDefensePower((short)boost);
+                }
+            }
+            else if (randomRate <= rankRate1)
+            {
+                text += "+";
+                armor.SetItemType("Enhanced Armor");
+                armor.SetRank(1);
+                
+                if (armor.GetItemSubtype().ToLower() == "robe")
+                {
+                    double boost = Math.Round(1.15f * armor.GetMagicResist());
+                    armor.SetMagicResist((short)boost);
+                }
+                else
+                {
+                    double boost = Math.Round(1.15f * armor.GetDefensePower());
+                    armor.SetDefensePower((short)boost);
+                }
+            }
+
+            //Name is complete
+            armor.SetItemName(text);
+
+            //set all values for the item display form
+            itemDisplay.ItemName = text;
+            itemDisplay.ItemLevel = "Level: " + level;
+            itemDisplay.ItemType = armor.GetItemType();
+            itemDisplay.ItemSubType = armor.GetItemSubtype();
+            itemDisplay.ItemAilment = Enum.GetName(typeof(Armor.ArmAilment), armor.GetAilment());
+            itemDisplay.ItemElement = Enum.GetName(typeof(Armor.ArmElement), armor.GetElement());
+            itemDisplay.Evasion = (armor.GetEvade() * 100).ToString();
+            itemDisplay.DefensePower = armor.GetDefensePower().ToString();
+            itemDisplay.MagicResist = armor.GetMagicResist().ToString();
+
+            //need to check which elements/ailment values are set
+            if (armor.GetElement() != Armor.ArmElement.None)
+            {
+                switch (armor.GetElement())
+                {
+                    case Armor.ArmElement.Fire:
+                        itemDisplay.FireDefValue = armor.GetElementDefValue().ToString();
+                        break;
+
+                    case Armor.ArmElement.Water:
+                        itemDisplay.WaterDefValue = armor.GetElementDefValue().ToString();
+                        break;
+
+                    case Armor.ArmElement.Wind:
+                        itemDisplay.WindDefValue = armor.GetElementDefValue().ToString();
+                        break;
+
+                    case Armor.ArmElement.Earth:
+                        itemDisplay.EarthDefValue = armor.GetElementDefValue().ToString();
+                        break;
+
+                    case Armor.ArmElement.Light:
+                        itemDisplay.LightDefValue = armor.GetElementDefValue().ToString();
+                        break;
+
+                    case Armor.ArmElement.Dark:
+                        itemDisplay.DarkDefValue = armor.GetElementDefValue().ToString();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            if (armor.GetAilment() != Armor.ArmAilment.None)
+            {
+                switch (armor.GetAilment())
+                {
+                    case Armor.ArmAilment.Poison:
+                        itemDisplay.PoisonDefValue = armor.GetAilmentDefValue().ToString();
+                        break;
+
+                    case Armor.ArmAilment.Stun:
+                        itemDisplay.StunDefValue = armor.GetAilmentDefValue().ToString();
+                        break;
+
+                    case Armor.ArmAilment.Freeze:
+                        itemDisplay.FreezeDefValue = armor.GetAilmentDefValue().ToString();
+                        break;
+
+                    case Armor.ArmAilment.Death:
+                        itemDisplay.DeathDefValue = armor.GetAilmentDefValue().ToString();
+                        break;
+
+                    case Armor.ArmAilment.Sleep:
+                        itemDisplay.SleepDefValue = armor.GetAilmentDefValue().ToString();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            //all done! Show the generated item.
+            itemDisplay.Show();
+        }
+
+        //displays all item data
+        private void DisplayItemData(ItemDisplay display)
         {
 
-        }*/
+        }
+
+       
 
     }
 }

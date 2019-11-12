@@ -186,7 +186,73 @@ namespace Item_Generator
 
         ////////Defense Elements////////////
 
+        public string FireDefValue
+        {
+            get { return TextBox_FireDefValue.Text; }
+            set { TextBox_FireDefValue.Text = value; }
+        }
+
+        public string WaterDefValue
+        {
+            get { return TextBox_WaterDefValue.Text; }
+            set { TextBox_WaterDefValue.Text = value; }
+        }
+
+        public string EarthDefValue
+        {
+            get { return TextBox_EarthDefValue.Text; }
+            set { TextBox_EarthDefValue.Text = value; }
+        }
+
+        public string WindDefValue
+        {
+            get { return TextBox_WindDefValue.Text; }
+            set { TextBox_WindDefValue.Text = value; }
+        }
+
+        public string LightDefValue
+        {
+            get { return TextBox_LightDefValue.Text; }
+            set { TextBox_LightDefValue.Text = value; }
+        }
+
+        public string DarkDefValue
+        {
+            get { return TextBox_DarkDefValue.Text; }
+            set { TextBox_DarkDefValue.Text = value; }
+        }
+
         ////////Defense Ailments////////////
+
+        public string PoisonDefValue
+        {
+            get { return TextBox_PoisonDefValue.Text; }
+            set { TextBox_PoisonDefValue.Text = value; }
+        }
+
+        public string StunDefValue
+        {
+            get { return TextBox_StunDefValue.Text; }
+            set { TextBox_StunDefValue.Text = value; }
+        }
+
+        public string SleepDefValue
+        {
+            get { return TextBox_SleepDefValue.Text; }
+            set { TextBox_SleepDefValue.Text = value; }
+        }
+
+        public string DeathDefValue
+        {
+            get { return TextBox_DeathDefValue.Text; }
+            set { TextBox_DeathDefValue.Text = value; }
+        }
+
+        public string FreezeDefValue
+        {
+            get { return TextBox_FreezeDefValue.Text; }
+            set { TextBox_FreezeDefValue.Text = value; }
+        }
 
         #endregion
     }
