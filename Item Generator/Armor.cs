@@ -31,8 +31,8 @@ namespace Item_Generator
         {
             None,
             Poison,
-            Stun,               //A weapon can come with a status effect. Weapons can only have one status effect enabled.
-            Freeze,             //The success rate of landing an effect is determined by the suffix in the item name.
+            Stun,               
+            Freeze,                  
             Death,
             Sleep
         }
@@ -42,9 +42,9 @@ namespace Item_Generator
             None,
             Fire,
             Water,
-            Earth,              //A weapon can have an element. A staff is most likely to have an element than any other weapon type.
-            Wind,               //A weapon can have up to two elements, and the name of item will reflect that. The only invalid combinations
-            Light,              //are: Fire + Water, Earth + Wind, and Light + Dark.       
+            Earth,              
+            Wind,               
+            Light,                                                                  
             Dark
         }
 
