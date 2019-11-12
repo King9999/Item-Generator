@@ -31,7 +31,7 @@ namespace Item_Generator
         {
             None,
             Poison,
-            Stun,           //A weapon can come with a status effect. Weapons can only have one status effect enabled.
+            Stun,               //A weapon can come with a status effect. Weapons can only have one status effect enabled.
             Freeze,             //The success rate of landing an effect is determined by the suffix in the item name.
             Death,
             Sleep

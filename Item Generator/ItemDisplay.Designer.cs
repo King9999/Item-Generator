@@ -108,6 +108,8 @@
             this.TextBox_FreezeDefValue = new System.Windows.Forms.MaskedTextBox();
             this.TextBox_DeathDefValue = new System.Windows.Forms.MaskedTextBox();
             this.TextBox_SleepDefValue = new System.Windows.Forms.MaskedTextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.TextBox_MagicResist = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -881,11 +883,32 @@
             this.TextBox_SleepDefValue.TabIndex = 108;
             this.TextBox_SleepDefValue.Text = "0";
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(125, 443);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(86, 16);
+            this.label26.TabIndex = 109;
+            this.label26.Text = "Magic Resist";
+            // 
+            // TextBox_MagicResist
+            // 
+            this.TextBox_MagicResist.Location = new System.Drawing.Point(218, 440);
+            this.TextBox_MagicResist.Mask = "0099";
+            this.TextBox_MagicResist.Name = "TextBox_MagicResist";
+            this.TextBox_MagicResist.Size = new System.Drawing.Size(66, 22);
+            this.TextBox_MagicResist.TabIndex = 110;
+            this.TextBox_MagicResist.Text = "0";
+            // 
             // ItemDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 842);
+            this.Controls.Add(this.TextBox_MagicResist);
+            this.Controls.Add(this.label26);
             this.Controls.Add(this.TextBox_SleepDefValue);
             this.Controls.Add(this.TextBox_DeathDefValue);
             this.Controls.Add(this.TextBox_FreezeDefValue);
@@ -1058,5 +1081,7 @@
         private System.Windows.Forms.MaskedTextBox TextBox_FreezeDefValue;
         private System.Windows.Forms.MaskedTextBox TextBox_DeathDefValue;
         private System.Windows.Forms.MaskedTextBox TextBox_SleepDefValue;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.MaskedTextBox TextBox_MagicResist;
     }
 }

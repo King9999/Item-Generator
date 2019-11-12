@@ -108,6 +108,12 @@ namespace Item_Generator
             set { TextBox_Evasion.Text = value; }
         }
 
+        public string MagicResist
+        {
+            get { return TextBox_MagicResist.Text; }
+            set { TextBox_MagicResist.Text = value; }
+        }
+
         ////////Attack Elements////////////
 
         public string FireAtkValue
