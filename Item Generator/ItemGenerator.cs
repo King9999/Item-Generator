@@ -21,7 +21,8 @@ namespace Item_Generator
 
     public partial class ItemGenerator : Form
     {
-        
+
+        private const string VERSION_NUMBER = "1.0";
 
         Weapon weapon;
         Armor armor;
@@ -262,7 +263,7 @@ namespace Item_Generator
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //display a window showing my contact info.
-            MessageBox.Show("Item Generator by Mike Murray\n\n Made for Proc Jam 2019 \n\n Twitter: @MikeADMurray \n\n king9999.itch.io", "About!");
+            MessageBox.Show("Item Generator v" + VERSION_NUMBER + " by Mike Murray\n\n Made for Proc Jam 2019 \n\n Twitter: @MikeADMurray \n\n king9999.itch.io", "About!");
         }
     }
 }
