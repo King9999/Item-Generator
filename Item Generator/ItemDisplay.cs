@@ -441,6 +441,17 @@ namespace Item_Generator
                         WriteWeaponData(writer);
                         break;
 
+                    case "armor":
+                        WriteArmorData(writer);
+                        break;
+
+                    case "accessory":
+                        {
+                            WriteWeaponData(writer);
+                            WriteArmorData(writer);
+                            WriteAccessoryData(writer);
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -528,6 +539,102 @@ namespace Item_Generator
             w.WriteEndElement();
 
             w.WriteEndElement();    //close AilmentAtk tag
+        }
+
+        private void WriteArmorData(XmlTextWriter w)
+        {
+            w.WriteComment("Defense data");
+            //defense power
+            w.WriteStartElement("DefensePwr");
+            w.WriteString(TextBox_DefensePower.Text);
+            w.WriteEndElement();
+
+            //evasion
+            w.WriteStartElement("Evasion");
+            w.WriteString(TextBox_Evasion.Text);
+            w.WriteEndElement();
+
+            //magic resist
+            w.WriteStartElement("MagicRes");
+            w.WriteString(TextBox_MagicResist.Text);
+            w.WriteEndElement();
+
+
+            //element def attributes
+            w.WriteComment("Elements");
+            w.WriteStartElement("ElementDef");
+
+            w.WriteStartElement("Fire");
+            w.WriteString(TextBox_FireDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Water");
+            w.WriteString(TextBox_WaterDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Wind");
+            w.WriteString(TextBox_WindDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Earth");
+            w.WriteString(TextBox_EarthDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Light");
+            w.WriteString(TextBox_LightDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Dark");
+            w.WriteString(TextBox_DarkDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteEndElement();    //close ElementDef tag
+
+            //ailment def attributes
+            w.WriteComment("Ailments");
+            w.WriteStartElement("AilmentDef");
+
+            w.WriteStartElement("Poison");
+            w.WriteString(TextBox_PoisonDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Stun");
+            w.WriteString(TextBox_StunDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Freeze");
+            w.WriteString(TextBox_FreezeDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Death");
+            w.WriteString(TextBox_DeathDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Sleep");
+            w.WriteString(TextBox_SleepDefValue.Text);
+            w.WriteEndElement();
+
+            w.WriteEndElement();    //close AilmentDef tag
+        }
+
+        private void WriteAccessoryData(XmlTextWriter w)
+        {
+            w.WriteComment("Bonus data");
+            w.WriteStartElement("Bonuses");
+
+            w.WriteStartElement("HealthPoints");
+            w.WriteString(TextBox_HealthPoints.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("MagicPoints");
+            w.WriteString(TextBox_MagicPoints.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Speed");
+            w.WriteString(TextBox_Speed.Text);
+            w.WriteEndElement();
+
+            w.WriteEndElement();    //end bonuses tag
         }
     }
 }

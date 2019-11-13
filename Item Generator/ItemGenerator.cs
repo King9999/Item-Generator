@@ -253,5 +253,16 @@ namespace Item_Generator
             return item;
 
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //display a window showing my contact info.
+            MessageBox.Show("Item Generator by Mike Murray\n\n Made for Proc Jam 2019 \n\n Twitter: @MikeADMurray \n\n king9999.itch.io", "About!");
+        }
     }
 }
