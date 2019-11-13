@@ -228,8 +228,8 @@ namespace Item_Generator
         {
             int selectedItem = ComboBox_ItemSubType.SelectedIndex;
             const int RING = 0;
-            const int NECKLACE = 1;
-            const int BOOTS = 2;
+            const int BOOTS = 1;
+            const int NECKLACE = 2;
 
             switch (selectedItem)
             {
@@ -237,12 +237,12 @@ namespace Item_Generator
                     item = new Ring();
                     break;
 
-                case NECKLACE:
-                    item = new Necklace();
-                    break;
-
                 case BOOTS:
                     item = new Boots();
+                    break;
+
+                case NECKLACE:
+                    item = new Necklace();
                     break;
 
 

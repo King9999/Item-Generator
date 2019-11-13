@@ -114,6 +114,19 @@ namespace Item_Generator
             set { TextBox_MagicResist.Text = value; }
         }
 
+        public string HealthBonus
+        {
+            get { return TextBox_HealthPoints.Text; }
+            set { TextBox_HealthPoints.Text = value; }
+        }
+
+        public string MagicBonus
+        {
+            get { return TextBox_MagicPoints.Text; }
+            set { TextBox_MagicPoints.Text = value; }
+        }
+
+
         ////////Attack Elements////////////
 
         public string FireAtkValue

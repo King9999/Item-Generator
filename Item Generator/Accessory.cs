@@ -59,8 +59,13 @@ namespace Item_Generator
             Speed
         }
 
-        protected AccElement AccActiveElement;
+        //protected AccElement AccActiveElementAtk;
+        //protected AccElement AccActiveElementDef;
+        //protected AccAilment AccActiveAilmentAtk;
+        //protected AccAilment AccActiveAilmentDef;
+
         protected AccAilment AccActiveAilment;
+        protected AccElement AccActiveElement;
         protected AccBonus AccActiveBonus;
 
 
@@ -353,12 +358,12 @@ namespace Item_Generator
                 AccEvade = MAX_EVADE;
         }
 
-        public AccElement GetElement()
+       /* public AccElement GetElementDef()
         {
-            return AccActiveElement;
-        }
+            return AccActiveElementDef;
+        }*/
 
-        public void SetElement(AccElement element, byte value)
+        public void SetElementDef(AccElement element, byte value)
         {
             AccActiveElement = element;
             AccElementDefValue = value;
@@ -366,17 +371,48 @@ namespace Item_Generator
                 AccElementDefValue = 100;
         }
 
-        public AccAilment GetAilment()
+        /*public AccAilment GetAilmentDef()
         {
-            return AccActiveAilment;
-        }
+            return AccActiveAilmentDef;
+        }*/
 
-        public void SetAilment(AccAilment ailment, byte value)
+        public void SetAilmentDef(AccAilment ailment, byte value)
         {
             AccActiveAilment = ailment;
             AccAilmentDefValue = value;
             if (AccAilmentDefValue > 100)
                 AccAilmentDefValue = 100;
+        }
+
+        /*public AccElement GetElementAtk()
+        {
+            return AccActiveElementAtk;
+        }*/
+
+        public void SetElementAtk(AccElement element, byte value)
+        {
+            AccActiveElement = element;
+            AccElementAtkValue = value;
+            if (AccElementAtkValue > 100)
+                AccElementAtkValue = 100;
+        }
+
+        public AccAilment GetAilment()
+        {
+            return AccActiveAilment;
+        }
+
+        public AccElement GetElement()
+        {
+            return AccActiveElement;
+        }
+
+        public void SetAilmentAtk(AccAilment ailment, byte value)
+        {
+            AccActiveAilment = ailment;
+            AccAilmentAtkValue = value;
+            if (AccAilmentAtkValue > 100)
+                AccAilmentAtkValue = 100;
         }
 
         public AccBonus GetBonus()
@@ -403,6 +439,16 @@ namespace Item_Generator
         public byte GetAilmentDefValue()
         {
             return AccAilmentDefValue;
+        }
+
+        public byte GetAilmentAtkValue()
+        {
+            return AccAilmentAtkValue;
+        }
+
+        public byte GetElementAtkValue()
+        {
+            return AccElementAtkValue;
         }
 
         public int GetCount(List<Dictionary<string, byte>> list)
