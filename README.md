@@ -1,6 +1,6 @@
 # Item-Generator by Mike Murray
-Twitter: @MikeADMurray
-king9999.itch.io
+* Twitter: @MikeADMurray
+* king9999.itch.io
 
 A tool used to create random items for an RPG, Use as is, or modify it as you see fit.
 
