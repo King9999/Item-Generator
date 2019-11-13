@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Item_Generator
 {
@@ -268,5 +269,108 @@ namespace Item_Generator
         }
 
         #endregion
+
+        //Write the contents to an XML file.
+        private void Button_SaveAsXML_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            string defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);            
+            defaultPath += "\\My Generated Items\\";
+            System.IO.Directory.CreateDirectory(defaultPath);
+
+            //create folders
+            string weaponsPath = defaultPath + "\\Weapons\\";
+            string armorPath = defaultPath + "\\Armor\\";
+            string accPath = defaultPath + "\\Accessories\\";
+
+            //weapons subfolders
+            string swordPath = weaponsPath + "\\Swords\\";
+            string axePath = weaponsPath + "\\Axes\\";
+            string bowPath = weaponsPath + "\\Bows\\";
+            string staffPath = weaponsPath + "\\Staves";
+
+            //armor subfolders
+            string suitPath = armorPath + "\\Suits\\";
+            string vestPath = armorPath + "\\Vests\\";
+            string robePath = armorPath + "\\Robes\\";
+
+            //accessory subfolders
+            string ringPath = accPath + "\\Rings\\";
+            string bootPath = accPath + "\\Boots\\";
+            string neckPath = accPath + "\\Necklaces\\";
+
+            System.IO.Directory.CreateDirectory(swordPath);
+            System.IO.Directory.CreateDirectory(axePath);
+            System.IO.Directory.CreateDirectory(bowPath);
+            System.IO.Directory.CreateDirectory(staffPath);
+            System.IO.Directory.CreateDirectory(suitPath);
+            System.IO.Directory.CreateDirectory(vestPath);
+            System.IO.Directory.CreateDirectory(robePath);
+            System.IO.Directory.CreateDirectory(ringPath);
+            System.IO.Directory.CreateDirectory(bootPath);
+            System.IO.Directory.CreateDirectory(neckPath);
+
+            //create an initial filepath by checking what the item subtype is.
+            switch (Label_ItemSubType.Text.ToLower())
+            {
+                case "sword":
+                    fileDialog.InitialDirectory = swordPath;
+                    break;
+
+                case "axe":
+                    fileDialog.InitialDirectory = axePath;
+                    break;
+
+                case "bow":
+                    fileDialog.InitialDirectory = bowPath;
+                    break;
+
+                case "staff":
+                    fileDialog.InitialDirectory = staffPath;
+                    break;
+
+                case "suit":
+                    fileDialog.InitialDirectory = suitPath;
+                    break;
+
+                case "vest":
+                    fileDialog.InitialDirectory = vestPath;
+                    break;
+
+                case "robe":
+                    fileDialog.InitialDirectory = robePath;
+                    break;
+
+                case "ring":
+                    fileDialog.InitialDirectory = ringPath;
+                    break;
+
+                case "boots":
+                    fileDialog.InitialDirectory = bootPath;
+                    break;
+
+                case "necklace":
+                    fileDialog.InitialDirectory = neckPath;
+                    break;
+
+            }
+
+            fileDialog.FileName = Label_ItemName.Text;
+            //fileDialog.Dis
+
+            //fileDialog.InitialDirectory = swordPath;
+            //fileDialog.ShowDialog();
+
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+
+               Console.WriteLine(fileDialog.InitialDirectory);
+               
+                //write to file
+                
+                //XmlTextWriter writer = new XmlTextWriter()
+            }
+
+        }
     }
 }

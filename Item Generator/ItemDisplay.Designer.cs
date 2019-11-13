@@ -122,6 +122,7 @@
             this.Button_SaveAsXML.TabIndex = 0;
             this.Button_SaveAsXML.Text = "Save as XML";
             this.Button_SaveAsXML.UseVisualStyleBackColor = true;
+            this.Button_SaveAsXML.Click += new System.EventHandler(this.Button_SaveAsXML_Click);
             // 
             // Label_ItemName
             // 

@@ -12,12 +12,12 @@ namespace Item_Generator
     {
         //When user generates an item, start by checking what type of item they want.
         ItemDisplay itemDisplay;    //used to display the generated item.
-        private static Random randNum = new Random();
+        private static Random randNum;
 
         public ItemMaker()
         {
             itemDisplay = new ItemDisplay();    //used to display the generated item.
-            //randNum = new Random();
+            randNum = new Random();
         }
 
         public void GenerateItem(Weapon weapon, byte level)
