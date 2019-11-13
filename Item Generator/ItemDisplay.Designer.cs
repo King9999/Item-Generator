@@ -42,8 +42,8 @@
             this.Label_MagicPower = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.Label_AttackProperties = new System.Windows.Forms.Label();
-            this.Label_Element = new System.Windows.Forms.Label();
-            this.Label_Ailment = new System.Windows.Forms.Label();
+            this.Label_ElementAtk = new System.Windows.Forms.Label();
+            this.Label_AilmentAtk = new System.Windows.Forms.Label();
             this.Label_Fire = new System.Windows.Forms.Label();
             this.Label_Water = new System.Windows.Forms.Label();
             this.Label_Wind = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.Label_ElementDef = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -72,7 +72,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.Label_AilmentDef = new System.Windows.Forms.Label();
             this.TextBox_HealthPoints = new System.Windows.Forms.MaskedTextBox();
             this.TextBox_MagicPoints = new System.Windows.Forms.MaskedTextBox();
             this.TextBox_AttackPower = new System.Windows.Forms.MaskedTextBox();
@@ -82,8 +82,8 @@
             this.TextBox_MagicPower = new System.Windows.Forms.MaskedTextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.TextBox_Evasion = new System.Windows.Forms.MaskedTextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.Label_Ailment = new System.Windows.Forms.Label();
+            this.Label_Element = new System.Windows.Forms.Label();
             this.Label_AilmentType = new System.Windows.Forms.Label();
             this.Label_ElementType = new System.Windows.Forms.Label();
             this.TextBox_FireAtkValue = new System.Windows.Forms.MaskedTextBox();
@@ -110,6 +110,7 @@
             this.TextBox_SleepDefValue = new System.Windows.Forms.MaskedTextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.TextBox_MagicResist = new System.Windows.Forms.MaskedTextBox();
+            this.Label_ItemRank = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -255,25 +256,25 @@
             this.Label_AttackProperties.TabIndex = 20;
             this.Label_AttackProperties.Text = "ATTACK PROPERTIES";
             // 
-            // Label_Element
+            // Label_ElementAtk
             // 
-            this.Label_Element.AutoSize = true;
-            this.Label_Element.Location = new System.Drawing.Point(13, 572);
-            this.Label_Element.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label_Element.Name = "Label_Element";
-            this.Label_Element.Size = new System.Drawing.Size(72, 16);
-            this.Label_Element.TabIndex = 21;
-            this.Label_Element.Text = "Element %";
+            this.Label_ElementAtk.AutoSize = true;
+            this.Label_ElementAtk.Location = new System.Drawing.Point(13, 572);
+            this.Label_ElementAtk.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_ElementAtk.Name = "Label_ElementAtk";
+            this.Label_ElementAtk.Size = new System.Drawing.Size(72, 16);
+            this.Label_ElementAtk.TabIndex = 21;
+            this.Label_ElementAtk.Text = "Element %";
             // 
-            // Label_Ailment
+            // Label_AilmentAtk
             // 
-            this.Label_Ailment.AutoSize = true;
-            this.Label_Ailment.Location = new System.Drawing.Point(13, 678);
-            this.Label_Ailment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label_Ailment.Name = "Label_Ailment";
-            this.Label_Ailment.Size = new System.Drawing.Size(67, 16);
-            this.Label_Ailment.TabIndex = 22;
-            this.Label_Ailment.Text = "Ailment %";
+            this.Label_AilmentAtk.AutoSize = true;
+            this.Label_AilmentAtk.Location = new System.Drawing.Point(13, 678);
+            this.Label_AilmentAtk.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_AilmentAtk.Name = "Label_AilmentAtk";
+            this.Label_AilmentAtk.Size = new System.Drawing.Size(67, 16);
+            this.Label_AilmentAtk.TabIndex = 22;
+            this.Label_AilmentAtk.Text = "Ailment %";
             // 
             // Label_Fire
             // 
@@ -424,15 +425,15 @@
             this.label9.TabIndex = 39;
             this.label9.Text = "Fire";
             // 
-            // label10
+            // Label_ElementDef
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(463, 572);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 16);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "Element %";
+            this.Label_ElementDef.AutoSize = true;
+            this.Label_ElementDef.Location = new System.Drawing.Point(463, 572);
+            this.Label_ElementDef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_ElementDef.Name = "Label_ElementDef";
+            this.Label_ElementDef.Size = new System.Drawing.Size(72, 16);
+            this.Label_ElementDef.TabIndex = 38;
+            this.Label_ElementDef.Text = "Element %";
             // 
             // label11
             // 
@@ -553,15 +554,15 @@
             this.label21.TabIndex = 64;
             this.label21.Text = "Poison";
             // 
-            // label22
+            // Label_AilmentDef
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(463, 678);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(67, 16);
-            this.label22.TabIndex = 63;
-            this.label22.Text = "Ailment %";
+            this.Label_AilmentDef.AutoSize = true;
+            this.Label_AilmentDef.Location = new System.Drawing.Point(463, 678);
+            this.Label_AilmentDef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_AilmentDef.Name = "Label_AilmentDef";
+            this.Label_AilmentDef.Size = new System.Drawing.Size(67, 16);
+            this.Label_AilmentDef.TabIndex = 63;
+            this.Label_AilmentDef.Text = "Ailment %";
             // 
             // TextBox_HealthPoints
             // 
@@ -646,25 +647,25 @@
             this.TextBox_Evasion.TabIndex = 82;
             this.TextBox_Evasion.Text = "0";
             // 
-            // label24
+            // Label_Ailment
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(215, 162);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(55, 16);
-            this.label24.TabIndex = 83;
-            this.label24.Text = "Ailment:";
+            this.Label_Ailment.AutoSize = true;
+            this.Label_Ailment.Location = new System.Drawing.Point(215, 162);
+            this.Label_Ailment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_Ailment.Name = "Label_Ailment";
+            this.Label_Ailment.Size = new System.Drawing.Size(55, 16);
+            this.Label_Ailment.TabIndex = 83;
+            this.Label_Ailment.Text = "Ailment:";
             // 
-            // label25
+            // Label_Element
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(348, 162);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(60, 16);
-            this.label25.TabIndex = 84;
-            this.label25.Text = "Element:";
+            this.Label_Element.AutoSize = true;
+            this.Label_Element.Location = new System.Drawing.Point(348, 162);
+            this.Label_Element.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_Element.Name = "Label_Element";
+            this.Label_Element.Size = new System.Drawing.Size(60, 16);
+            this.Label_Element.TabIndex = 84;
+            this.Label_Element.Text = "Element:";
             // 
             // Label_AilmentType
             // 
@@ -903,11 +904,22 @@
             this.TextBox_MagicResist.TabIndex = 110;
             this.TextBox_MagicResist.Text = "0";
             // 
+            // Label_ItemRank
+            // 
+            this.Label_ItemRank.AutoSize = true;
+            this.Label_ItemRank.Location = new System.Drawing.Point(348, 192);
+            this.Label_ItemRank.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_ItemRank.Name = "Label_ItemRank";
+            this.Label_ItemRank.Size = new System.Drawing.Size(68, 16);
+            this.Label_ItemRank.TabIndex = 111;
+            this.Label_ItemRank.Text = "Item Rank";
+            // 
             // ItemDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 842);
+            this.Controls.Add(this.Label_ItemRank);
             this.Controls.Add(this.TextBox_MagicResist);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.TextBox_SleepDefValue);
@@ -934,8 +946,8 @@
             this.Controls.Add(this.TextBox_FireAtkValue);
             this.Controls.Add(this.Label_ElementType);
             this.Controls.Add(this.Label_AilmentType);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.label24);
+            this.Controls.Add(this.Label_Element);
+            this.Controls.Add(this.Label_Ailment);
             this.Controls.Add(this.TextBox_Evasion);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.TextBox_MagicPower);
@@ -950,7 +962,7 @@
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.label22);
+            this.Controls.Add(this.Label_AilmentDef);
             this.Controls.Add(this.Label_ItemLevel);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
@@ -964,7 +976,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.Label_ElementDef);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -974,8 +986,8 @@
             this.Controls.Add(this.Label_Wind);
             this.Controls.Add(this.Label_Water);
             this.Controls.Add(this.Label_Fire);
-            this.Controls.Add(this.Label_Ailment);
-            this.Controls.Add(this.Label_Element);
+            this.Controls.Add(this.Label_AilmentAtk);
+            this.Controls.Add(this.Label_ElementAtk);
             this.Controls.Add(this.Label_AttackProperties);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.Label_MagicPower);
@@ -1016,8 +1028,8 @@
         private System.Windows.Forms.Label Label_MagicPower;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label Label_AttackProperties;
-        private System.Windows.Forms.Label Label_Element;
-        private System.Windows.Forms.Label Label_Ailment;
+        private System.Windows.Forms.Label Label_ElementAtk;
+        private System.Windows.Forms.Label Label_AilmentAtk;
         private System.Windows.Forms.Label Label_Fire;
         private System.Windows.Forms.Label Label_Water;
         private System.Windows.Forms.Label Label_Wind;
@@ -1033,7 +1045,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label Label_ElementDef;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
@@ -1046,7 +1058,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label Label_AilmentDef;
         private System.Windows.Forms.MaskedTextBox TextBox_HealthPoints;
         private System.Windows.Forms.MaskedTextBox TextBox_MagicPoints;
         private System.Windows.Forms.MaskedTextBox TextBox_AttackPower;
@@ -1056,8 +1068,8 @@
         private System.Windows.Forms.MaskedTextBox TextBox_MagicPower;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.MaskedTextBox TextBox_Evasion;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label Label_Ailment;
+        private System.Windows.Forms.Label Label_Element;
         private System.Windows.Forms.Label Label_AilmentType;
         private System.Windows.Forms.Label Label_ElementType;
         private System.Windows.Forms.MaskedTextBox TextBox_FireAtkValue;
@@ -1084,5 +1096,6 @@
         private System.Windows.Forms.MaskedTextBox TextBox_SleepDefValue;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.MaskedTextBox TextBox_MagicResist;
+        private System.Windows.Forms.Label Label_ItemRank;
     }
 }

@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -59,6 +60,12 @@ namespace Item_Generator
         {
             get { return Label_ItemLevel.Text; }
             set { Label_ItemLevel.Text = value; }
+        }
+
+        public string ItemRank
+        {
+            get { return Label_ItemRank.Text; }
+            set { Label_ItemRank.Text = value; }
         }
 
         public string ItemAilment
@@ -353,6 +360,9 @@ namespace Item_Generator
                     fileDialog.InitialDirectory = neckPath;
                     break;
 
+                default:
+                    break;
+
             }
 
             fileDialog.FileName = Label_ItemName.Text;
@@ -373,22 +383,151 @@ namespace Item_Generator
                Console.WriteLine(fileDialog.InitialDirectory);
 
                 //write to file
-                string fileName = fileDialog.InitialDirectory + fileDialog.FileName;
+                //string fileName = fileDialog.InitialDirectory + fileDialog.FileName;
                 XmlTextWriter writer = new XmlTextWriter(fileDialog.FileName, Encoding.UTF8);
                 writer.WriteStartDocument();
                 writer.Formatting = Formatting.Indented;
+
+
+                //string itemType = Regex.Replace(Label_ItemType.Text, " ", "");  //this removes any spaces that are added in case we get an enhanced item.
                 writer.WriteStartElement(Label_ItemType.Text);  //This is a tag
                 writer.WriteStartElement(Label_ItemSubType.Text);
+
+                //item name
                 writer.WriteStartElement("Name");
                 writer.WriteString(Label_ItemName.Text);
+                writer.WriteEndElement();
+                
 
-                writer.WriteEndElement();                       //close name tag
+                //ailment and element
+                //string ailmentLabel = Regex.Replace(Label_Ailment.Text, ":", "");
+                writer.WriteStartElement("Ailment");
+                writer.WriteString(Label_AilmentType.Text);
+                writer.WriteEndElement();
+
+                //string elementLabel = Regex.Replace(Label_Element.Text, ":", "");
+                writer.WriteStartElement("Element");
+                writer.WriteString(Label_ElementType.Text);
+                writer.WriteEndElement();
+
+
+                //item level
+                string level = Regex.Replace(Label_ItemLevel.Text, "Level: ", "");
+                writer.WriteStartElement("Level");
+                writer.WriteString(level);
+                writer.WriteEndElement();
+
+                //item rank
+                string rank = Regex.Replace(Label_ItemRank.Text, "Rank: ", "");
+                writer.WriteStartElement("Rank");
+                writer.WriteString(rank);
+                writer.WriteEndElement();
+
+
+                //attack power
+                /*(writer.WriteStartElement("Attack");
+                writer.WriteString(TextBox_AttackPower.Text);
+                writer.WriteEndElement();
+
+                //accuracy
+                writer.WriteStartElement("Accuracy");
+                writer.WriteString(TextBox_Accuracy.Text);
+                writer.WriteEndElement();*/
+
+                //start writing new info based on item type
+                switch(Label_ItemType.Text.ToLower())
+                {
+                    case "weapon":
+                        WriteWeaponData(writer);
+                        break;
+
+                    default:
+                        break;
+                }
+                       
+
                 writer.WriteEndElement();                       //close subtype tag
                 writer.WriteEndElement();                       //close type tag
 
                 writer.Close();
             }
 
+        }
+
+        private void WriteWeaponData(XmlTextWriter w)
+        {
+            w.WriteComment("Attack data");
+            //attack power
+            w.WriteStartElement("AttackPwr");
+            w.WriteString(TextBox_AttackPower.Text);
+            w.WriteEndElement();
+
+            //accuracy
+            w.WriteStartElement("Accuracy");
+            w.WriteString(TextBox_Accuracy.Text);
+            w.WriteEndElement();
+
+            //magic power
+            w.WriteStartElement("MagicPwr");
+            w.WriteString(TextBox_MagicPower.Text);
+            w.WriteEndElement();
+
+
+            //element atk attributes
+            w.WriteComment("Elements");
+            w.WriteStartElement("ElementAtk");
+
+            w.WriteStartElement("Fire");
+            w.WriteString(TextBox_FireAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Water");
+            w.WriteString(TextBox_WaterAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Wind");
+            w.WriteString(TextBox_WindAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Earth");
+            w.WriteString(TextBox_EarthAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Light");
+            w.WriteString(TextBox_LightAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Dark");
+            w.WriteString(TextBox_DarkAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteEndElement();    //close ElementAtk tag
+
+            //ailment atk attributes
+            w.WriteComment("Ailments");
+            w.WriteStartElement("AilmentAtk");
+
+            w.WriteStartElement("Poison");
+            w.WriteString(TextBox_PoisonAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Stun");
+            w.WriteString(TextBox_StunAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Freeze");
+            w.WriteString(TextBox_FreezeAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Death");
+            w.WriteString(TextBox_DeathAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteStartElement("Sleep");
+            w.WriteString(TextBox_SleepAtkValue.Text);
+            w.WriteEndElement();
+
+            w.WriteEndElement();    //close AilmentAtk tag
         }
     }
 }

@@ -112,7 +112,7 @@ namespace Item_Generator
             if (randomRate <= rankRate3)
             {
                 text += "+++";
-                weapon.SetItemType("Enhanced Weapon");
+                //weapon.SetItemType("Enhanced Weapon");
                 weapon.SetRank(3);
                 if (weapon.GetItemSubtype().ToLower() == "staff")
                 {
@@ -128,7 +128,7 @@ namespace Item_Generator
             else if (randomRate <= rankRate2)
             {
                 text += "++";
-                weapon.SetItemType("Enhanced Weapon");
+                //weapon.SetItemType("Enhanced Weapon");
                 weapon.SetRank(2);
                 if (weapon.GetItemSubtype().ToLower() == "staff")
                 {
@@ -144,7 +144,7 @@ namespace Item_Generator
             else if (randomRate <= rankRate1)
             {
                 text += "+";
-                weapon.SetItemType("Enhanced Weapon");
+                //weapon.SetItemType("Enhanced Weapon");
                 weapon.SetRank(1);
                 //Console.WriteLine("Atk Value before boost: " + weapon.GetAttackPower());
                 if (weapon.GetItemSubtype().ToLower() == "staff")
@@ -165,6 +165,7 @@ namespace Item_Generator
             //set all values for the item display form
             itemDisplay.ItemName = text;
             itemDisplay.ItemLevel = "Level: " + level;
+            itemDisplay.ItemRank = "Rank: " + weapon.GetRank();
             itemDisplay.ItemType = weapon.GetItemType();
             itemDisplay.ItemSubType = weapon.GetItemSubtype();
             itemDisplay.ItemAilment = Enum.GetName(typeof(Weapon.WpnAilment), weapon.GetAilment());
@@ -331,7 +332,7 @@ namespace Item_Generator
             if (randomRate <= rankRate3)
             {
                 text += "+++";
-                armor.SetItemType("Enhanced Armor");
+                //armor.SetItemType("Enhanced Armor");
                 armor.SetRank(3);
 
                 if (armor.GetItemSubtype().ToLower() == "robe")
@@ -348,7 +349,7 @@ namespace Item_Generator
             else if (randomRate <= rankRate2)
             {
                 text += "++";
-                armor.SetItemType("Enhanced Armor");
+                //armor.SetItemType("Enhanced Armor");
                 armor.SetRank(2);
 
                 if (armor.GetItemSubtype().ToLower() == "robe")
@@ -365,7 +366,7 @@ namespace Item_Generator
             else if (randomRate <= rankRate1)
             {
                 text += "+";
-                armor.SetItemType("Enhanced Armor");
+                //armor.SetItemType("Enhanced Armor");
                 armor.SetRank(1);
                 
                 if (armor.GetItemSubtype().ToLower() == "robe")
@@ -386,6 +387,7 @@ namespace Item_Generator
             //set all values for the item display form
             itemDisplay.ItemName = text;
             itemDisplay.ItemLevel = "Level: " + level;
+            itemDisplay.ItemRank = "Rank: " + armor.GetRank();
             itemDisplay.ItemType = armor.GetItemType();
             itemDisplay.ItemSubType = armor.GetItemSubtype();
             itemDisplay.ItemAilment = Enum.GetName(typeof(Armor.ArmAilment), armor.GetAilment());
@@ -688,7 +690,7 @@ namespace Item_Generator
             if (randomRate <= rankRate3)
             {
                 text += "+++";
-                accessory.SetItemType("Enhanced Accessory");
+                //accessory.SetItemType("Enhanced Accessory");
                 accessory.SetRank(3);
 
                 switch (accessory.GetItemSubtype().ToLower())
@@ -721,7 +723,7 @@ namespace Item_Generator
             else if (randomRate <= rankRate2)
             {
                 text += "++";
-                accessory.SetItemType("Enhanced Accessory");
+                //accessory.SetItemType("Enhanced Accessory");
                 accessory.SetRank(2);
 
                 switch (accessory.GetItemSubtype().ToLower())
@@ -754,7 +756,7 @@ namespace Item_Generator
             else if (randomRate <= rankRate1)
             {
                 text += "+";
-                accessory.SetItemType("Enhanced Accessory");
+                //accessory.SetItemType("Enhanced Accessory");
                 accessory.SetRank(1);
 
                 switch (accessory.GetItemSubtype().ToLower())
@@ -791,6 +793,7 @@ namespace Item_Generator
             //set all values for the item display form
             itemDisplay.ItemName = text;
             itemDisplay.ItemLevel = "Level: " + level;
+            itemDisplay.ItemRank = "Rank: " + accessory.GetRank();
             itemDisplay.ItemType = accessory.GetItemType();
             itemDisplay.ItemSubType = accessory.GetItemSubtype();
             itemDisplay.ItemAilment = Enum.GetName(typeof(Accessory.AccAilment), accessory.GetAilment());
