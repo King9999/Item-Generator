@@ -356,6 +356,12 @@ namespace Item_Generator
             }
 
             fileDialog.FileName = Label_ItemName.Text;
+            fileDialog.DefaultExt = "xml";
+            fileDialog.AddExtension = true;                 //Ensures that the file extension is added even if removed
+            fileDialog.OverwritePrompt = true;
+            fileDialog.Filter = "eXtensible Markup Language (.xml)|*.xml|Text Files (.txt)|*.txt|All Files (*.*)|*.*";
+            
+
             //fileDialog.Dis
 
             //fileDialog.InitialDirectory = swordPath;
@@ -365,10 +371,22 @@ namespace Item_Generator
             {
 
                Console.WriteLine(fileDialog.InitialDirectory);
-               
+
                 //write to file
-                
-                //XmlTextWriter writer = new XmlTextWriter()
+                string fileName = fileDialog.InitialDirectory + fileDialog.FileName;
+                XmlTextWriter writer = new XmlTextWriter(fileDialog.FileName, Encoding.UTF8);
+                writer.WriteStartDocument();
+                writer.Formatting = Formatting.Indented;
+                writer.WriteStartElement(Label_ItemType.Text);  //This is a tag
+                writer.WriteStartElement(Label_ItemSubType.Text);
+                writer.WriteStartElement("Name");
+                writer.WriteString(Label_ItemName.Text);
+
+                writer.WriteEndElement();                       //close name tag
+                writer.WriteEndElement();                       //close subtype tag
+                writer.WriteEndElement();                       //close type tag
+
+                writer.Close();
             }
 
         }
